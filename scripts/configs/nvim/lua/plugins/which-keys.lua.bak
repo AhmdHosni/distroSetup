@@ -1,0 +1,24 @@
+----------------------------------------------------------------------------------
+-- File:          which-keys.lua
+-- Created:       Tuesday, 27 January 2026 - 05:37 AM
+-- Author:        AhmdHosni (ahmdhosny@gmail.com)
+-- Link:          
+-- Description:   helps you remember your Neovim keymaps, by showing keybindings as you type.
+----------------------------------------------------------------------------------
+
+
+return {
+	"folke/which-key.nvim",
+	version="*"
+	event = "VeryLazy",
+	opts = {},
+	keys = {
+		{
+			"<leader>?",
+			function()
+				require("which-key").show({ global = false })
+			end,
+			desc = "Buffer Local Keymaps (which-key)",
+		},
+	},
+}

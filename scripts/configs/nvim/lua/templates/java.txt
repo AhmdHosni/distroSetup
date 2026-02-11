@@ -1,0 +1,6 @@
+public class %FILENAME_NO_EXT% {
+    public static void main(String[] args) {
+        System.out.println("Hello from %FILENAME%");
+    }
+}
+
