@@ -9,9 +9,10 @@
 #########################################
 
 # adding android SDK directory
-export  ANDROID_STUDIO_DIR="/media/ahmdhosni/Storage/Apps/Android"
+export  ANDROID_DIR="/media/ahmdhosni/Storage/Apps/Android"
+export ANDROID_STUDIO_DIR="$ANDROID_DIR/android-studio/bin"
 
-export ANDROID_HOME="$ANDROID_STUDIO_DIR/Sdk"       # Sets the path to the SDK installation directory
+export ANDROID_HOME="$ANDROID_DIR/Sdk"       # Sets the path to the SDK installation directory
 export ANDROID_USER_HOME=$ANDROID_HOME/.android     # Sets the path to the user preferences directory for tools that are part of the Android SDK. Defaults to $HOME/.android/. 
 export GRADLE_USER_HOME=$ANDROID_HOME/gradle/.gradle    
 #export STUDIO_PROPERTIES=$ANDROID_HOME/custom_options/idea.properties
@@ -25,7 +26,7 @@ FLUTTER_PATH="$ANDROID_HOME/flutter/bin"
 
 
 # adding to $PATH
-export PATH=$PATH:$ANDROID_HOME:$ANDROID_USER_HOME:$GRADLE_USER_HOME:$PLATFORM_TOOLS_PATH:$TOOLS_PATH:$FLUTTER_PATH
+export PATH=$PATH:$ANDROID_STUDIO_DIR:$ANDROID_HOME:$ANDROID_USER_HOME:$GRADLE_USER_HOME:$PLATFORM_TOOLS_PATH:$TOOLS_PATH:$FLUTTER_PATH
 
 # adding flutter to PATH 
 #export PATH=$ANDROID_HOME/flutter/bin:$PATH
