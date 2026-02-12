@@ -55,7 +55,8 @@ FONTS_GLOBAL_DESTINATION_FOLDER="/usr/share/fonts"
 #ZINIT_GLOBAL_DESTINATION_FOLDER="$ZSH_EXTRAS_GLOBAL_DESTINATION_FOLDER/zinit" && sudo mkdir -p $ZINIT_GLOBAL_DESTINATION_FOLDER
 
 # Making git directory at ~/.config/git to store git files
-GIT_CONFIG_DIR="$HOME/.config/git" && mkdir -p $GIT_CONFIG_DIR
+GIT_CONFIG_DIR_USER="$HOME/.config/git" && mkdir -p $GIT_CONFIG_DIR_USER
+GIT_CONFIG_DIR_ROOT="/root/.config/git" && sudo mkdir -p $GIT_CONFIG_DIR_ROOT
 
 ##########################
 # Calculate Total Packages

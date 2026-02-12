@@ -2,8 +2,8 @@
 Version=1.0
 Type=Application
 Name=Android Studio
-Icon=/opt/android-studio/bin/studio.png
-Exec="/opt/android-studio/bin/studio.sh" %f
+Icon=/media/ahmdhosni/Storage/Apps/Android/android-studio/bin/studio.png
+Exec="/media/ahmdhosni/Storage/Apps/Android/android-studio/bin/studio" %f
 Comment=Android Studio IDE
 Categories=Development;IDE;
 Terminal=false

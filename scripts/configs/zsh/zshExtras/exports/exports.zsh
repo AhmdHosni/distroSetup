@@ -8,10 +8,11 @@
 # adding path to android main directories
 #########################################
 
-# adding android SDK directory
-export  ANDROID_DIR="/media/ahmdhosni/Storage/Apps/Android"
+# Where is android studio located
+export ANDROID_DIR="/media/ahmdhosni/Storage/Apps/Android"
 export ANDROID_STUDIO_DIR="$ANDROID_DIR/android-studio/bin"
 
+# adding android SDK directory
 export ANDROID_HOME="$ANDROID_DIR/Sdk"       # Sets the path to the SDK installation directory
 export ANDROID_USER_HOME=$ANDROID_HOME/.android     # Sets the path to the user preferences directory for tools that are part of the Android SDK. Defaults to $HOME/.android/. 
 export GRADLE_USER_HOME=$ANDROID_HOME/gradle/.gradle    
