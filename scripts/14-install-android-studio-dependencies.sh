@@ -58,6 +58,15 @@ if [ "$DISTRO" = "debian" ]; then
     show_title "Install open JDK"
     install_package "openjdk-25-jdk" "Java Development Kit 25"
 
+    # --- Flutter dependencies  ---
+    show_title "Install Fluttr dependencies"
+    install-package "curl"
+    install-package "git"
+    install-package "zip"
+    install-package "unzip"
+    install_package "xz-utils"
+    install_package "libglu1-mesa"
+
     # --- KVM & Virtualization ---
     show_title "Install KVM and Virtualization Tools"
     install_package "qemu-kvm" "QEMU/KVM hypervisor"
