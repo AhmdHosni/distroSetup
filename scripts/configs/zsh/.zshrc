@@ -645,15 +645,29 @@ zle_highlight+=(paste:none)
 # Yazi terminal file explorer integration
 # y shell wrapper that provides the ability to change the current working 
 # directory when exiting yazi.
+# Yazi portable
+YAZI_DIR="/media/$USER/Storage/Apps/yazi"
+# adding yazi portable to the path
+[[ -d $YAZI_PATH ]] && PATH=$PATH:$YAZI_PATH
 if [[ -x "$(command -v yazi)" ]]; then
-    function y() {
-        local tmp="$(mktemp -t "yazi-cwd.xxxxxx")"
-        yazi "$@" --cwd-file="$tmp"
-        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$pwd" ]; then
-            builtin cd -- "$cwd"
+    function yy() {
+    # Create a local temp file in your Yazi folder instead of /tmp
+    #local tmp="/media/ahmdhosni/Storage/Apps/yazi/yazi-cwd.tmp"
+    local tmp="$YAZI_DIR/yazi-cwd.tmp"
+    
+    # Run the portable binary and force it to write the CWD to that file
+    yazi "$@" --cwd-file="$tmp"
+    
+    # Read the file and change directory if it's different
+    if [ -f "$tmp" ]; then
+        local cwd="$(cat -- "$tmp")"
+        if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            cd -- "$cwd"
         fi
-        rm -f -- "$tmp"
+        #rm -f -- "$tmp"
+    fi
     }
+
 
 fi
 
