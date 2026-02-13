@@ -48,7 +48,7 @@ ZSHrc_DESTINATION_ROOT="/root/.config/zsh" && sudo mkdir -p $ZSHrc_DESTINATION_R
 # zshenv global destination folder
 ZSHenv_GLOBAL_DESTINATION_FOLDER="/etc/zsh"
 # zshExtras global destination folder
-ZSH_EXTRAS_GLOBAL_DESTINATION_FOLDER="/etc/zsh"
+ZSH_EXTRAS_GLOBAL_DESTINATION_FOLDER="/usr/share/zsh"
 # fonts global destination folder
 FONTS_GLOBAL_DESTINATION_FOLDER="/usr/share/fonts"
 # global zinit

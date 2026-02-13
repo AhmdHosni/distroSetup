@@ -251,18 +251,18 @@ NEWLINE_BEFORE_PROMPT=yes
 
 # 1. Determine if Zinit directory exists in system path
 #if [[ -n "$DISPLAY" || -n "$WAYLAND_DISPLAY" ]] || ls /tmp/.X11-unix/X* >/dev/null 2>&1 || ls /run/user/*/wayland-* >/dev/null 2>&1; then
-if __has_gui && [[ -d /etc/zsh/zshExtras/zinit ]]; then
+if __has_gui && [[ -d /usr/share/zsh/zshExtras/zinit ]]; then
     # GUI Mode 
     # load zinit only when you are in graphical interface
     # Override Zinit internals to use the shared system path
-    export ZINIT_HOME="/etc/zsh/zshExtras/zinit/zinit.git"
+    export ZINIT_HOME="/usr/share/zsh/zshExtras/zinit/zinit.git"
 
     # Define the associative array ZINIT before sourcing to override default paths
     typeset -gA ZINIT
-    ZINIT[HOME_DIR]="/etc/zsh/zshExtras/zinit"
-    ZINIT[PLUGINS_DIR]="/etc/zsh/zshExtras/zinit/plugins"
-    ZINIT[SNIPPETS_DIR]="/etc/zsh/zshExtras/zinit/snippets"
-    ZINIT[COMPLETIONS_DIR]="/etc/zsh/zshExtras/zinit/completions"
+    ZINIT[HOME_DIR]="/usr/share/zsh/zshExtras/zinit"
+    ZINIT[PLUGINS_DIR]="/usr/share/zsh/zshExtras/zinit/plugins"
+    ZINIT[SNIPPETS_DIR]="/usr/share/zsh/zshExtras/zinit/snippets"
+    ZINIT[COMPLETIONS_DIR]="/usr/share/zsh/zshExtras/zinit/completions"
 
     # 2. AUTO-INSTALL ZINIT
     if [ ! -d "$ZINIT_HOME" ]; then
@@ -320,15 +320,15 @@ if [ "$color_prompt" = yes ]; then
 
     
 #if [[ ! -n "$DISPLAY" || ! -n "$WAYLAND_DISPLAY" ]] || ! ls /tmp/.X11-unix/X* >/dev/null 2>&1 || ! ls /run/user/*/wayland-* >/dev/null 2>&1; then     
-if [[ ! -d /etc/zsh/zshExtras/zinit ]]; then     
+if [[ ! -d /usr/share/zsh/zshExtras/zinit ]]; then     
  # Not in a GUI Mode run configure_prompt
         configure_prompt
     fi
 
 
     # enable zsh-syntax-highlighting
-    if [ -f /etc/zsh/zshExtras/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-        . /etc/zsh/zshExtras/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    if [ -f /usr/share/zsh/zshExtras/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+        . /usr/share/zsh/zshExtras/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
         ZSH_HIGHLIGHT_STYLES[default]=none
         ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=white,underline
@@ -392,7 +392,7 @@ toggle_oneline_prompt(){
     fi
 
 #if [[ ! -n "$DISPLAY" || ! -n "$WAYLAND_DISPLAY" ]] || ! ls /tmp/.X11-unix/X* >/dev/null 2>&1 || ! ls /run/user/*/wayland-* >/dev/null 2>&1; then     
-if [[ ! -d /etc/zsh/zshExtras/zinit ]]; then     
+if [[ ! -d /usr/share/zsh/zshExtras/zinit ]]; then     
      # Not in a GUI Mode run configure_prompt
         configure_prompt
     fi
@@ -617,8 +617,8 @@ function random_bars() {
 ################################################################################
 
 # Enable auto-suggestions based on command history
-if [ -f /etc/zsh/zshExtras/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    . /etc/zsh/zshExtras/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f /usr/share/zsh/zshExtras/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    . /usr/share/zsh/zshExtras/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     # change suggestion color to gray
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
@@ -633,7 +633,7 @@ fi
 ################################################################################
 
 # Import external aliases file if it exists
-if [ -f /etc/zsh/zshExtras/aliases/aliases.zsh ]; then . /etc/zsh/zshExtras/aliases/aliases.zsh; fi
+if [ -f /usr/share/zsh/zshExtras/aliases/aliases.zsh ]; then . /usr/share/zsh/zshExtras/aliases/aliases.zsh; fi
 
 # Remove text copy/paste highlights
 zle_highlight+=(paste:none)

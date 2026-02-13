@@ -73,10 +73,10 @@ if [ "$DISTRO" = "debian" ]; then
 
     # --- Flutter dependencies  ---
     show_title "Install Fluttr dependencies"
-    install_package "curl"
-    install_package "git"
-    install_package "zip"
-    install_package "unzip"
+    install-package "curl"
+    install-package "git"
+    install-package "zip"
+    install-package "unzip"
     install_package "xz-utils"
     install_package "libglu1-mesa"
 
