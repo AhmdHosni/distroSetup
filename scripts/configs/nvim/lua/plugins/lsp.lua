@@ -22,7 +22,7 @@ return {
 	{
 		-- Main LSP Configuration
 		"neovim/nvim-lspconfig",
-        version = "*",
+		version = "*",
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
 			-- Mason must be loaded before its dependents so we need to set it up here.
@@ -228,7 +228,7 @@ return {
 			local servers = {
 				bashls = {},
 				marksman = {},
-                jdtls = {},
+				jdtls = {},
 
 				-- clangd = {},
 				-- gopls = {},
@@ -296,8 +296,8 @@ return {
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 				"prettierd", -- Used to format javascript and typescript code
-                "shfmt",    -- Used to format bash, zsh 
-                "google-java-format",   -- Used to format Java
+				"shfmt", -- Used to format bash, zsh
+				"google-java-format", -- Used to format Java
 				"black", -- needed for conform
 				"isort", -- needed for Conform
 				"prettier", -- needed for conform
@@ -402,7 +402,7 @@ return {
 				-- See :h blink-cmp-config-keymap for defining your own keymap
 				keymap = {
 					preset = "default",
-					["<C-Z>"] = { "accept", "fallback" },
+					["<CR>"] = { "accept", "fallback" },
 				},
 
 				appearance = {

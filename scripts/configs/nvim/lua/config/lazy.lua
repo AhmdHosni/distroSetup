@@ -4,7 +4,7 @@
 -- Author:        AhmdHosni (ahmdhosny@gmail.com)
 -- Link:          lazy.nvim github  : https://github.com/folke/lazy.nvim
 --                lazy.nvim website : https://lazy.folke.io/installation
-        
+
 -- Description:   lazy.nvim package manager Bootstrap & Plugin Setup
 --                bootstraps the 'lazy.nvim' plugin manager by cloning it if not present, prepends it to the
 --                runtime path, and then loads core configuration files (globals, options, keymaps, autocmds).
@@ -40,7 +40,7 @@ require("lazy").setup({
 
 	spec = {
 		{ import = plugins_dir },
-        { "folke/lazy.nvim", version = "*" },
+		{ "folke/lazy.nvim", version = "*" },
 	},
 
 	rtp = {
@@ -49,11 +49,11 @@ require("lazy").setup({
 			"netrwPlugin",
 		},
 	},
-	
+
 	install = {
-		colorscheme = {"catppuccin",},
+		--colorscheme = {"catppuccin",},
+		colorscheme = { "kanagawa" },
 	},
-	
+
 	checker = { enabled = true },
 })
-

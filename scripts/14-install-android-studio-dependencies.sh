@@ -28,8 +28,16 @@ fi
 ######################
 # Defining Directores:
 ######################
-ANDROID_STUDIO_SHORTCUT_SOURCE_DIR="$THIS_DIR/configs/Android/"
-ANDROID_STUDIO_SHORTCUT_DESTINATION_DIR="$HOME/.local/share/applications/"
+ANDROID_STUDIO_SHORTCUT_SOURCE_DIR="$THIS_DIR/configs/android"
+ANDROID_STUDIO_SHORTCUT_DESTINATION_DIR="$HOME/.local/share/applications"
+
+###############################
+# Copy Android Studio Shortcut:
+###############################
+
+show_title "Copy android studio desktop shortcut"
+copy_file "$ANDROID_STUDIO_SHORTCUT_SOURCE_DIR/android-studio.desktop" "$ANDROID_STUDIO_SHORTCUT_DESTINATION_DIR"
+
 #####################
 # Main Install
 #####################
@@ -121,11 +129,6 @@ elif [ "$DISTRO" = "arch" ]; then
     install_package "dnsmasq" "DNS/DHCP server for virtual networks"
     install_package "virt-manager" "Graphical VM manager"
     install_package "bridge-utils" "Network bridge utilities"
-
-    # --- Copy Android Studio Shortcut  ---
-
-    show_title "Copy android studio desktop shortcut"
-    copy_file "$ANDROID_STUDIO_SHORTCUT_SOURCE_DIR/android-studio.desktop" "$ANDROID_STUDIO_SHORTCUT_DESTINATION_DIR"
 
     # --- User permissions ---
     show_title "Grant User Permissions"

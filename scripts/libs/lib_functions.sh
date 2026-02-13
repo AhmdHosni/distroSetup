@@ -826,10 +826,10 @@ git_clone() {
         if [ -d "$dest_path/.git" ]; then
             echo -e "${BLUE}⊙ Already cloned: ${dest_path}${NC}"
             return 0
-        else
-            echo -e "${RED}✗ Destination exists but is not a git repository: ${dest_path}${NC}"
-            echo -e "${YELLOW}Please remove or rename it manually.${NC}"
-            return 1
+        # else
+        #     echo -e "${RED}✗ Destination exists but is not a git repository: ${dest_path}${NC}"
+        #     echo -e "${YELLOW}Please remove or rename it manually.${NC}"
+        #     return 1
         fi
     fi
 
