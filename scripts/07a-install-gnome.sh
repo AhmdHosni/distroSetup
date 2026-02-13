@@ -132,7 +132,8 @@ install_package "curl" "Curl: Command-line tool for transferring data with URLs"
 install_package "git" "Git: Distributed version control system"
 # Installing wget
 install_package "wget" "Wget: Network downloader"
-# Installing xclip
+# Installing timeshift
+install_package "timeshift" "TimeShift: revert back at any point of time with your distro"
 
 #####################################################################
 # SPICIFIC DISTRO PACKAGES PLUS REQUIREMENT FOR SYSTEM MONITOR NEXT :
