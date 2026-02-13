@@ -39,10 +39,11 @@ WALLPAPER_ARCH="$WALLPAPER_SOURCE_DIR/samurai.jpg"
 WALLPAPER_DEST="$HOME/.local/share/backgrounds"
 
 # Icons
-ICONS_SOURCE_DIR="$CONFIGS_DIR/icons"
-ICONS_ZIP="$ICONS_SOURCE_DIR/breeze-extra.zip"
-ICONS_TARGET_PATH="breeze-extra-master/breeze-extra-dark"
-ICONS_THEME_CONFIG="$ICONS_SOURCE_DIR/index.theme"
+# ICONS_SOURCE_DIR="$CONFIGS_DIR/icons"
+# ICONS_ZIP="$ICONS_SOURCE_DIR/breeze-extra.zip"
+# ICONS_TARGET_PATH="breeze-extra-master/breeze-extra-dark"
+# ICONS_THEME_CONFIG="$ICONS_SOURCE_DIR/index.theme"
+ICONS_URL="https://github.com/ahmdhosni/breeze-icons"
 ICONS_DEST="$HOME/.local/share/icons"
 
 # FireFox config
@@ -80,20 +81,22 @@ copy_folder "$CONFIGS_DIR/tmux" "$HOME/.config" "Tmux terminal multiplexer confi
 
 show_title "Installing Icon Theme"
 
+git_clone "$ICONS_URL" "$ICONS_DEST" "Breeze Icons Dark: my favorite icon set on Gnome Dark themes"
+
 # Extract breeze-extra-dark icon theme from zip
-extract_from_zip "$ICONS_ZIP" "$ICONS_TARGET_PATH" "$ICONS_DEST" "Breeze Extra Dark icon theme" 1
+#extract_from_zip "$ICONS_ZIP" "$ICONS_TARGET_PATH" "$ICONS_DEST" "Breeze Extra Dark icon theme" 1
 
 # Fine-tune the extracted icon theme
-if [ -d "$ICONS_DEST/breeze-extra-dark" ]; then
-    echo ""
-    echo -e "${CYAN}Fine-tuning icon theme...${NC}"
-
-    # Copy custom index.theme
-    copy_file "$ICONS_THEME_CONFIG" "$ICONS_DEST/breeze-extra-dark" "Custom icon theme configuration"
-
-    # Remove apps folder (not needed)
-    remove_folder "$ICONS_DEST/breeze-extra-dark/apps" "Unnecessary apps folder from icon theme"
-fi
+# if [ -d "$ICONS_DEST/breeze-extra-dark" ]; then
+#     echo ""
+#     echo -e "${CYAN}Fine-tuning icon theme...${NC}"
+#
+#     # Copy custom index.theme
+#     copy_file "$ICONS_THEME_CONFIG" "$ICONS_DEST/breeze-extra-dark" "Custom icon theme configuration"
+#
+#     # Remove apps folder (not needed)
+#     remove_folder "$ICONS_DEST/breeze-extra-dark/apps" "Unnecessary apps folder from icon theme"
+# fi
 
 #########################
 # DISTRO-SPECIFIC SETUP

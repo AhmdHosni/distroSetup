@@ -122,7 +122,7 @@ elif [ "$DISTRO" = "arch" ]; then
     install_package "virt-manager" "Graphical VM manager"
     install_package "bridge-utils" "Network bridge utilities"
 
-    # --- Copy Android Studio Shortcut ---
+    # --- Copy Android Studio Shortcut  ---
 
     show_title "Copy android studio desktop shortcut"
     copy_file "$ANDROID_STUDIO_SHORTCUT_SOURCE_DIR/android-studio.desktop" "$ANDROID_STUDIO_SHORTCUT_DESTINATION_DIR"
