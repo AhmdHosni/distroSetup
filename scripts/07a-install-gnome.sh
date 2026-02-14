@@ -45,8 +45,8 @@ show_title "INSTALLING GNOME CORE PACKAGES ON $DISTRO"
 #########################
 
 # --- THE DESKTOP FRAMEWORK ---
-install_package_no_recommendations "gnome-shell" "The Shell: The main UI including the top bar, dash, and activities overview"
-install_package_no_recommendations "gnome-session" "Session Manager: Logic that starts the desktop environment and saved apps"
+install_package "gnome-shell" "The Shell: The main UI including the top bar, dash, and activities overview"
+install_package "gnome-session" "Session Manager: Logic that starts the desktop environment and saved apps"
 
 # --- SYSTEM MANAGEMENT & DISK TOOLS ---
 
