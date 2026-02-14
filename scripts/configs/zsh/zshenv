@@ -21,10 +21,6 @@ if [[ -z "$PATH" || "$PATH" == "/bin:/usr/bin" ]]; then export PATH="/usr/local/
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then PATH="$HOME/bin:$PATH" ; fi
 
-#################
-# Extra exports :
-# ##############
-if [ -f /etc/zsh/zshExtras/exports/exports.zsh ]; then source /etc/zsh/zshExtras/exports/exports.zsh; fi
 
 # set PATH so it includes zshrc file if it exists
 #if [ -f "$HOME/.config/zsh/zshrc" ]; then source "$HOME/.config/zsh/zshrc"; fi
@@ -180,6 +176,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1      # Fix for Java applications in dwm
 # Switch escape and caps if tty and no passwd required:
 #sudo -n loadkeys "$XDG_DATA_HOME/larbs/ttymaps.kmap" 2>/dev/null
 
+#################
+# Extra exports :
+# ##############
+if [ -f /usr/share/zsh/zshExtras/exports/exports.zsh ]; then source /usr/share/zsh/zshExtras/exports/exports.zsh; fi
 
 
 
