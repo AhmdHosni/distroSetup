@@ -648,7 +648,7 @@ zle_highlight+=(paste:none)
 # Yazi portable
 YAZI_DIR="/media/$USER/Storage/Apps/yazi"
 # adding yazi portable to the path
-[[ -d $YAZI_PATH ]] && PATH=$PATH:$YAZI_PATH
+[[ -d $YAZI_DIR ]] && PATH=$PATH:$YAZI_DIR
 if [[ -x "$(command -v yazi)" ]]; then
     function yy() {
     # Create a local temp file in your Yazi folder instead of /tmp
