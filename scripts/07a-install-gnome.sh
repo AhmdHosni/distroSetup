@@ -151,7 +151,7 @@ if command -v apt-get &>/dev/null; then
     install_package "gir1.2-nm-1.0" "GObject introspection data for NetworkManager"
     install_package "gir1.2-clutter-1.0" "GObject introspection data for Clutter"
     install_package "chrome-gnome-shell" "Gnome browser connector is a dependency for extension install through firefox"
-    install_package "libarchive-tools" "LibaArchive-tools: gnome Archiving tools (badunzip, bsdtar ...etc). A utility for compressing and decompressing"
+    # install_package "libarchive-tools" "LibaArchive-tools: gnome Archiving tools (badunzip, bsdtar ...etc). A utility for compressing and decompressing"
     # Run the Firefox install script
     if bash "$THIS_DIR/07b-installFirefox.sh"; then
         echo -e "${GREEN}✓ Firefox latest version is installed${NC}"
@@ -168,7 +168,7 @@ elif command -v pacman &>/dev/null; then
     install_package "gnome-browser-connector" "Gnome browser connector is a dependency for extension install"
     # for system monitor next extension
     install_package "libgtop" "GObject introspection data for libgtop"
-    install_package "libarchive" "LibArchive: gnome archiving tool,(badunzip, bsdtar ...etc). A utility for compressing and decompressing"
+    # install_package "libarchive" "LibArchive: gnome archiving tool,(badunzip, bsdtar ...etc). A utility for compressing and decompressing"
 #install_package "clutter" "GObject introspection data for Clutter"
 fi
 
