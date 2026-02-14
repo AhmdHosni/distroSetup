@@ -68,8 +68,8 @@ if [ "$DISTRO" = "debian" ]; then
     install_package "libbz2-1.0:i386" "32-bit bzip2 compression library"
 
     # --- JDK ---
-    show_title "Install open JDK"
-    install_package "openjdk-25-jdk" "Java Development Kit 25"
+    # show_title "Install open JDK"
+    # install_package "openjdk-25-jdk" "Java Development Kit 25"
 
     # --- Flutter dependencies  ---
     show_title "Install Fluttr dependencies"
