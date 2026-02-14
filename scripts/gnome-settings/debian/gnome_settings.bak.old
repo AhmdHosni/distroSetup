@@ -16,7 +16,7 @@ name='X-Pardus-Apps.directory'
 translate=true
 
 [org/gnome/desktop/app-folders/folders/System]
-apps=['org.gnome.tweaks.desktop', 'org.gnome.SystemMonitor.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'virt-manager.desktop', 'nm-connection-editor.desktop', 'yelp.desktop', 'im-config.desktop', 'org.freedesktop.MalcontentControl.desktop', 'timeshift-gtk.desktop']
+apps=['org.gnome.tweaks.desktop', 'org.gnome.SystemMonitor.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'virt-manager.desktop', 'nm-connection-editor.desktop', 'yelp.desktop', 'im-config.desktop', 'org.freedesktop.MalcontentControl.desktop']
 name='X-GNOME-Shell-System.directory'
 translate=true
 
@@ -41,7 +41,6 @@ secondary-color='#000000000000'
 [org/gnome/desktop/input-sources]
 show-all-sources=true
 sources=[('xkb', 'us')]
-xkb-options=@as []
 
 [org/gnome/desktop/interface]
 clock-show-weekday=true
@@ -98,7 +97,7 @@ power-button-action='interactive'
 [org/gnome/shell]
 app-picker-layout=[{'Utilities': <{'position': <0>}>, 'System': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'nvim.desktop': <{'position': <3>}>}]
 enabled-extensions=['autoselectheadset@josephlbarnett.github.com', 'caffeine@patapon.info', 'dash-to-panel@jderose9.github.com', 'no-overview@fthx', 'system-monitor-next@paradoxxx.zero.gmail.com']
-favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'android-studio.desktop', 'kitty.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'kitty.desktop']
 welcome-dialog-last-shown-version='48.7'
 
 [org/gnome/shell/extensions/caffeine]

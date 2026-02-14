@@ -24,7 +24,7 @@ if [ -d "$HOME/bin" ]; then PATH="$HOME/bin:$PATH" ; fi
 #################
 # Extra exports :
 # ##############
-if [ -f /usr/share/zsh/zshExtras/exports/exports.zsh ]; then source /usr/share/zsh/zshExtras/exports/exports.zsh; fi
+if [ -f /etc/zsh/zshExtras/exports/exports.zsh ]; then source /etc/zsh/zshExtras/exports/exports.zsh; fi
 
 # set PATH so it includes zshrc file if it exists
 #if [ -f "$HOME/.config/zsh/zshrc" ]; then source "$HOME/.config/zsh/zshrc"; fi

@@ -7,7 +7,7 @@
 # Description:  This script installs global zinit and make it accessable for user and root
 #--------------------------------------------------------------------------------
 
-INSTALL_DIR="/usr/share/zsh/zshExtras/zinit"
+INSTALL_DIR="/etc/zsh/zshExtras/zinit"
 
 if command -v apt-get &>/dev/null; then
 
