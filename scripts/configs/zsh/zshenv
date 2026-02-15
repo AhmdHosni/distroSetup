@@ -51,6 +51,11 @@ export FCEDIT=nvim
 export TERMINAL=kitty
 export BROWSER=firefox
 
+
+# Force Dark theme
+export GTK_THEME=Adwaita:dark
+
+
 # bat environmental variable if exists
 if [[ -x "$(command -v bat)" ]]; then
 	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -110,6 +115,10 @@ export PATH="$XDG_DATA_HOME/npm/bin:$PATH"
 export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
+
+
+## Ollama
+export OLLAMA_MODELS=$XDG_DATA_HOME/ollama/models
 
 ## Java (openJDK)
 #export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
