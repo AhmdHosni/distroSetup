@@ -53,7 +53,7 @@ export BROWSER=firefox
 
 
 # Force Dark theme
-export GTK_THEME=Adwaita:dark
+#export GTK_THEME=Adwaita:dark
 
 
 # bat environmental variable if exists
