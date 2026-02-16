@@ -39,7 +39,7 @@ WALLPAPER_ARCH="$WALLPAPER_SOURCE_DIR/samurai.jpg"
 WALLPAPER_DEST="$HOME/.local/share/backgrounds"
 
 # Icons
-ICONS_SOURCE_DIR="$CONFIGS_DIR/icons/pngs"
+#ICONS_SOURCE_DIR="$CONFIGS_DIR/icons/pngs"
 # ICONS_ZIP="$ICONS_SOURCE_DIR/breeze-extra.zip"
 # ICONS_TARGET_PATH="breeze-extra-master/breeze-extra-dark"
 # ICONS_THEME_CONFIG="$ICONS_SOURCE_DIR/index.theme"
@@ -80,7 +80,7 @@ copy_folder "$CONFIGS_DIR/tmux" "$HOME/.config" "Tmux terminal multiplexer confi
 #########################
 
 show_title "Installing Icon Theme"
-copy_folder "$ICONS_SOURCE_DIR" "$ICONS_DEST" "Copying custom icons"
+#copy_folder "$ICONS_SOURCE_DIR" "$ICONS_DEST" "Copying custom icons"
 git_clone "$ICONS_URL" "$ICONS_DEST" "Breeze Icons Dark: my favorite icon set on Gnome Dark themes"
 # Fine-tune the extracted icon theme
 if [ -d "$ICONS_DEST/breeze-extra-dark" ]; then
