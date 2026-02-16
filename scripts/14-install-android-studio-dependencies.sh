@@ -48,7 +48,7 @@ LOCAL_ICON_FOLDER="$HOME/.local/share/icons/pngs" && mkdir -p $LOCAL_ICON_FOLDER
 
 # setting the folder icon to ~/.android
 TARGET_FOLDER="$HOME/.android" && mkdir -p $TARGET_FOLDER
-set_folder_icon "$TARGET_FOLDER" "$TARGET_ICON_FOLDER/android.png" "setting custom icon to .android folder"
+set_folder_icon "$TARGET_FOLDER" "$LOCAL_ICON_FOLDER/android.png" "setting custom icon to .android folder"
 
 #####################
 # Main Install
