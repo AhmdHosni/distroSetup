@@ -33,8 +33,15 @@ cache_sudo
 # Calculate Total Packages
 ##########################
 
-# Count active install_package_no_recommendations calls in this script (excluding commented ones)
-TOTAL_PACKAGES=$(grep -c "^install_package_no_recommendations" "$0")
+# Count regular install_package calls
+COUNT_REGULAR=$(grep -c "^install_package " "$0")
+
+# Count install_package_no_recommendations calls
+COUNT_NO_REC=$(grep -c "^install_package_no_recommendations" "$0")
+
+# Total packages to install
+TOTAL_PACKAGES=$((COUNT_REGULAR + COUNT_NO_REC))
+
 echo ""
 echo -e "${CYAN}${BOLD}Total packages to process: ${TOTAL_PACKAGES}${NC}"
 

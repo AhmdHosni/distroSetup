@@ -1,0 +1,31 @@
+
+
+
+# Initial memory allocation
+
+-Xmx8192m
+-Djava.util.prefs.userRoot=/media/ahmdhosni/Storage/Apps/Android/sdk/custom/java
+-Djava.awt.fontconfig=/home/ahmdhosni/.cache/fontconfig
+-Duser.home=/media/ahmdhosni/Storage/Apps/Android/sdk/custom/java
+
+
+
+# Maximum memory allocation (Heap size)
+# Increase to 4g or 8g for very large projects
+
+# Size of the reserved code cache
+#-XX:ReservedCodeCacheSize=512m
+
+# Faster background processes
+#-Dsun.io.useCanonCaches=false
+
+# Improved graphics performance on some systems
+#-Dsun.java2d.opengl=true
+
+# Better responsiveness for large projects
+#-XX:SoftRefLRUPolicyMSPerMB=50
+
+# Optimized garbage collection (standard for modern JVMs)
+#-XX:+UseG1GC
+#-XX:MaxGCPauseMillis=200
+

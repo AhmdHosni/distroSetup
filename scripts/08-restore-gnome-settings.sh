@@ -43,6 +43,8 @@ WALLPAPER_DEST="$HOME/.local/share/backgrounds"
 # ICONS_ZIP="$ICONS_SOURCE_DIR/breeze-extra.zip"
 # ICONS_TARGET_PATH="breeze-extra-master/breeze-extra-dark"
 # ICONS_THEME_CONFIG="$ICONS_SOURCE_DIR/index.theme"
+
+FOLDER_ICONS_SOURCE_DIR="$CONFIGS_DIR/icons/pngs"
 ICONS_URL="https://github.com/ahmdhosni/breeze-icons"
 ICONS_DEST="$HOME/.local/share/icons"
 
@@ -87,6 +89,9 @@ if [ -d "$ICONS_DEST/breeze-extra-dark" ]; then
     #Remove apps folder (not needed)
     remove_folder "$ICONS_DEST/.git" "Removing .git folder from icon destination folder"
 fi
+
+# Copying custom folder and app icons.
+copy_folder "$FOLDER_ICONS_SOURCE_DIR" "$ICONS_DEST" "Copying custom icons"
 
 # Extract breeze-extra-dark icon theme from zip
 #extract_from_zip "$ICONS_ZIP" "$ICONS_TARGET_PATH" "$ICONS_DEST" "Breeze Extra Dark icon theme" 1
