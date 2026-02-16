@@ -80,7 +80,7 @@ copy_folder "$CONFIGS_DIR/tmux" "$HOME/.config" "Tmux terminal multiplexer confi
 #########################
 
 show_title "Installing Icon Theme"
-copy_folder "ICONS_SOURCE_DIR" "$ICONS_DEST" "Copying custom icons"
+copy_folder "$ICONS_SOURCE_DIR" "$ICONS_DEST" "Copying custom icons"
 git_clone "$ICONS_URL" "$ICONS_DEST" "Breeze Icons Dark: my favorite icon set on Gnome Dark themes"
 # Fine-tune the extracted icon theme
 if [ -d "$ICONS_DEST/breeze-extra-dark" ]; then
