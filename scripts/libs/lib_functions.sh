@@ -1021,14 +1021,15 @@ set_folder_icon() {
     [ -n "$description" ] && echo -e "${YELLOW}${BOLD}Description: ${description}${NC}"
     echo -e "${YELLOW}Target: ${FOLDER_PATH}${NC}"
 
-   # gio set -t string "$FOLDER_PATH" metadata::custom-icon "file://$ICON_PATH"
-   # echo "Icon set for $FOLDER_PATH"
-   if gio set -t string "$FOLDER_PATH" metadata::custom-icon "file://$ICON_PATH" 2>/dev/null; then
-            echo -e "${GREEN}✓ $ICON_PATH is set to $FOLDER_PATH successfully${NC}"
-            return 0
-        else
-            echo -e "${RED}✗ Failed to set custom icon to $FOLDER_PATH ${NC}"
-    return 1
+    # gio set -t string "$FOLDER_PATH" metadata::custom-icon "file://$ICON_PATH"
+    # echo "Icon set for $FOLDER_PATH"
+    if gio set -t string "$FOLDER_PATH" metadata::custom-icon "file://$ICON_PATH" 2>/dev/null; then
+        echo -e "${GREEN}✓ $ICON_PATH is set to $FOLDER_PATH successfully${NC}"
+        return 0
+    else
+        echo -e "${RED}✗ Failed to set custom icon to $FOLDER_PATH ${NC}"
+        return 1
+    fi
 }
 
 #####################

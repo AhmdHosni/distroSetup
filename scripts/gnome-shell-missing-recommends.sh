@@ -20,6 +20,9 @@
 #   gnome-session has NO recommended packages (only Depends and Suggests),
 #   so using --no-install-recommends on it has zero side effects.
 #   All entries below are from gnome-shell's Recommends only.
+#
+#   On Arch, pacman never installs optional dependencies, so these packages
+#   are skipped regardless of flags. This script is needed on BOTH Debian and Arch.
 #--------------------------------------------------------------------------------
 
 #####################
