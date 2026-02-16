@@ -97,10 +97,12 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # 1. Force Git to look for its main config in XDG
 export GIT_CONFIG_GLOBAL="$XDG_CONFIG_HOME/git/config"
 # 2. Tell Git where the global ignore and attributes are
-git config --global core.excludesFile "$XDG_CONFIG_HOME/git/ignore"
-git config --global core.attributesFile "$XDG_CONFIG_HOME/git/attributes"
-# 3. Force credentials to XDG (if using 'store' helper)
-git config --global credential.helper "store --file $XDG_CONFIG_HOME/git/credentials"
+if command -v git &>/dev/null; then
+    git config --global core.excludesFile "$XDG_CONFIG_HOME/git/ignore"
+    git config --global core.attributesFile "$XDG_CONFIG_HOME/git/attributes"
+    # 3. Force credentials to XDG (if using 'store' helper)
+    git config --global credential.helper "store --file $XDG_CONFIG_HOME/git/credentials"
+fi
 
 ## npm
 # Tell npm to use XDG directories

@@ -30,7 +30,7 @@ cache_sudo
 #touch $ZSH_DESTINATION_DIR_USER/zsh_history
 #cat $HOME/.bash_history | tee -a $ZSH_DESTINATION_DIR_USER/zsh_history
 
-show_title "INSURE CLEANING UP AND REMOVING OLD FILES .bash and .profile "
+show_title "ENSURE CLEANING UP AND REMOVING OLD FILES .bash and .profile "
 
 # Remove .bashrc
 remove_folder "$HOME/.bashrc" "Removing .bashrc file from $HOME"
@@ -60,18 +60,18 @@ remove_folder "/root/.profile" "Removing .profile file from /root"
 
 # Cleaning up Root bash files
 
-show_title "Final check on Removing root's old bash files"
-if [ -f /root/.bashrc]; then
-    echo -e "${YELLOW}${BOLD}\nEnsure Removing old .bashrc file for root ...${NC}"
-    sudo rm -vf /root/.bashrc
-    if [ $? -eq 0 ]; then echo -e "${GREEN}.bashrc removed successfully for root ${NC}"; else echo -e "${RED}.bashrc removal failed for root !${NC}"; fi
-fi
-
-if [ -f /root/.bash]; then
-    echo -e "${YELLOW}${BOLD}\nEnsure Removing old .bash_history file for root ...${NC}"
-    sudo rm -vf /root/.bash_history
-    if [ $? -eq 0 ]; then echo -e "${GREEN}.bash_history removed successfully for root ${NC}"; else echo -e "${RED}.bash_history removal failed for root !${NC}"; fi
-fi
+# show_title "Final check on Removing root's old bash files"
+# if [ -f /root/.bashrc]; then
+#     echo -e "${YELLOW}${BOLD}\nEnsure Removing old .bashrc file for root ...${NC}"
+#     sudo rm -vf /root/.bashrc
+#     if [ $? -eq 0 ]; then echo -e "${GREEN}.bashrc removed successfully for root ${NC}"; else echo -e "${RED}.bashrc removal failed for root !${NC}"; fi
+# fi
+#
+# if [ -f /root/.bash]; then
+#     echo -e "${YELLOW}${BOLD}\nEnsure Removing old .bash_history file for root ...${NC}"
+#     sudo rm -vf /root/.bash_history
+#     if [ $? -eq 0 ]; then echo -e "${GREEN}.bash_history removed successfully for root ${NC}"; else echo -e "${RED}.bash_history removal failed for root !${NC}"; fi
+# fi
 
 # Exit the script:
 # ###############

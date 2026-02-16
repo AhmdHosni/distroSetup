@@ -304,6 +304,39 @@ system_update() {
     fi
 }
 
+# Clean (auto remove)
+system_clean() {
+    #show_title "System Cleaning"
+    echo -e "${YELLOW}${BOLD}Cleaning the system from unused packages...${NC}"
+
+    # Build command based on distro
+    local clean_command
+    if [ "$DISTRO" = "debian" ]; then
+        clean_command="apt-get autoremove -y"
+        echo -e "${CYAN}Running: apt-get autoremove${NC}"
+    else
+        update_command="pacman -Syyu --noconfirm"
+        echo -e "${CYAN}Running: pacman -Syyu${NC}"
+    fi
+
+    echo -e "${CYAN}This may take several minutes...${NC}"
+    echo -e "${CYAN}Watch the right pane for progress...${NC}"
+    echo ""
+
+    # --- Update via tmux_run_command helper (2 second sleep, sudo=true) ---
+    if tmux_run_command "${clean_command}" 2 "true"; then
+        echo ""
+        echo -e "${GREEN}✓ System clean completed successfully${NC}"
+        sleep 2
+        return 0
+    else
+        echo ""
+        echo -e "${RED}✗ System clean failed${NC}"
+        sleep 2
+        return 1
+    fi
+}
+
 #####################
 # Install Package (REFACTORED)
 #####################
@@ -366,7 +399,7 @@ install_package_no_recommendations() {
 
     echo ""
     if [ "$DISTRO" = "debian" ]; then
-        echo -e "${YELLOW}${BOLD}[${CURRENT_PACKAGE}/${TOTAL_PACKAGES}] Installing: ${package_name} without any recommended packages${NC}"
+        echo -e "${YELLOW}${BOLD}[${CURRENT_PACKAGE}/${TOTAL_PACKAGES}] Installing: ${package_name} - no recommended packages${NC}"
     else
         echo -e "${YELLOW}${BOLD}[${CURRENT_PACKAGE}/${TOTAL_PACKAGES}] Installing: ${package_name}${NC}"
     fi
@@ -971,6 +1004,30 @@ remove_folder() {
     fi
 
     echo -e "${RED}✗ Failed to remove target${NC}"
+    return 1
+}
+
+#####################
+# Set folder icon :
+#####################
+set_folder_icon() {
+    # Usage: ./set_icon.sh /path/to/folder /path/to/icon.png
+    FOLDER_PATH=$(realpath "$1")
+    ICON_PATH=$(realpath "$2")
+    local description="$2"
+
+    echo ""
+    echo -e "${YELLOW}${BOLD}Setting custom icon to $FOLDER_PATH ${NC}"
+    [ -n "$description" ] && echo -e "${YELLOW}${BOLD}Description: ${description}${NC}"
+    echo -e "${YELLOW}Target: ${FOLDER_PATH}${NC}"
+
+   # gio set -t string "$FOLDER_PATH" metadata::custom-icon "file://$ICON_PATH"
+   # echo "Icon set for $FOLDER_PATH"
+   if gio set -t string "$FOLDER_PATH" metadata::custom-icon "file://$ICON_PATH" 2>/dev/null; then
+            echo -e "${GREEN}✓ $ICON_PATH is set to $FOLDER_PATH successfully${NC}"
+            return 0
+        else
+            echo -e "${RED}✗ Failed to set custom icon to $FOLDER_PATH ${NC}"
     return 1
 }
 

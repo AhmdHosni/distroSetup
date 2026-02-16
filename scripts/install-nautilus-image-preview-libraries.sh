@@ -50,3 +50,6 @@ if command -v apt-get &>/dev/null; then
     nautilus -q
 
 fi
+
+# Exit the script
+exit 0

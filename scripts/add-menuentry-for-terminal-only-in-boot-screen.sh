@@ -51,3 +51,6 @@ EOF
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 fi
+
+# Exit the Script
+exit 0

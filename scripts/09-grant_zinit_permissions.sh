@@ -7,6 +7,10 @@
 # Description:  This script installs global zinit and make it accessable for user and root
 #--------------------------------------------------------------------------------
 
+THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$THIS_DIR/libs/lib_functions.sh"
+cache_sudo
+
 INSTALL_DIR="/usr/share/zsh/zshExtras/zinit"
 
 if command -v apt-get &>/dev/null; then
