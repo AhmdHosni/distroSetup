@@ -43,9 +43,9 @@ copy_file "$ANDROID_STUDIO_SHORTCUT_SOURCE_DIR/android-studio.desktop" "$ANDROID
 ###############################################
 # set_folder_icon "TargetFolder" "PathToCustomIcon.png" "Description"
 FOLDER_ICON_SOURCE_FILE="$THIS_DIR/configs/icons/pngs/android.png"
-TARGET_FOLDER="$HOME/.android" && mkdir -p $TARGET_FOLDER
-copy_file "$FOLDER_ICON_SOURCE_FILE" "$TARGET_FOLDER"
-set_folder_icon "$TARGET_FOLDER" "$TARGET_FOLDER/android.png" "setting custom icon to .android folder"
+TARGET_FOLDER="$HOME/.android" && mkdir -p $TARGET_FOLDER/.icon
+copy_file "$FOLDER_ICON_SOURCE_FILE" "$TARGET_FOLDER/.icon"
+set_folder_icon "$TARGET_FOLDER" "$TARGET_FOLDER/.icon/android.png" "setting custom icon to .android folder"
 
 #####################
 # Main Install
