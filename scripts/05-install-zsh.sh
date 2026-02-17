@@ -108,8 +108,11 @@ install_package "xclip" "XClip: Command-line clipboard utility"
 # Installing font-config
 install_package "fontconfig" "provides available fonts to applications, also configure how fonts get rendered"
 # install fonts-noto-emoji for colored emojies
-install_package "fonts-noto-color-emoji" "Font: fonts-noto-color-emoji is a Noto  font for coloured emojies"
-
+if command -v apt-get &>/dev/null; then
+    install_package "fonts-noto-color-emoji" "Font: fonts-noto-color-emoji is a Noto  font for coloured emojies"
+else
+    install_package "noto-fonts-emoji" "Font: fonts-noto-color-emoji is a Noto  font for coloured emojies"
+fi
 ######################
 ## Copying zsh files :
 ######################

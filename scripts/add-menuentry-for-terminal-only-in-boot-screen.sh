@@ -30,10 +30,14 @@ EOF
 
 elif command -v pacman &>/dev/null; then
 
-    # Script to add Terminal Mode to Arch Linux GRUB
-    cat <<'EOF' | sudo tee -a /etc/grub.d/40_custom
+    # Detect running kernel release
+    KERNEL_RELEASE=$(uname -r)
 
-menuentry 'Arch Linux (Terminal Mode)' --class arch --class gnu-linux {
+    if [[ "$KERNEL_RELEASE" == *"-lts"* ]]; then
+        echo "Detected Arch LTS. Adding LTS Terminal Entry..."
+        cat <<'EOF' | sudo tee -a /etc/grub.d/40_custom
+
+menuentry 'Arch Linux (LTS - Terminal Mode)' --class arch --class gnu-linux {
     load_video
     set gfxpayload=keep
     insmod gzio
@@ -42,12 +46,32 @@ menuentry 'Arch Linux (Terminal Mode)' --class arch --class gnu-linux {
     search --no-floppy --fs-uuid --set=root E802-AD2C
     echo    'Loading Linux linux-lts (CLI)...'
     linux   /vmlinuz-linux-lts root=UUID=b71b6889-5942-46de-ab4b-1cf6185506eb rw rootflags=subvol=@ zswap.enabled=0 rootfstype=btrfs loglevel=3 quiet systemd.unit=multi-user.target
-    echo    'Loading initial ramdisk ...'
     initrd  /intel-ucode.img /initramfs-linux-lts.img
 }
 EOF
 
-    # Update GRUB configuration
+    elif [[ "$KERNEL_RELEASE" == *"-zen"* ]]; then
+        echo "Detected Arch Zen. Adding Zen Terminal Entry..."
+        cat <<'EOF' | sudo tee -a /etc/grub.d/40_custom
+
+menuentry 'Arch Linux (Zen - Terminal Mode)' --class arch --class gnu-linux {
+    load_video
+    set gfxpayload=keep
+    insmod gzio
+    insmod part_gpt
+    insmod fat
+    search --no-floppy --fs-uuid --set=root 3A35-B2ED
+    echo    'Loading Linux linux-zen (CLI)...'
+    linux   /vmlinuz-linux-zen root=UUID=3c633f0a-a25f-448c-951b-e4e367fbf1fd rw rootflags=subvol=@ zswap.enabled=0 rootfstype=btrfs loglevel=3 quiet systemd.unit=multi-user.target
+    initrd  /intel-ucode.img /initramfs-linux-zen.img
+}
+EOF
+
+    else
+        echo "Kernel not recognized as LTS or Zen ($KERNEL_RELEASE)."
+    fi
+
+    # Apply changes
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 fi

@@ -4,7 +4,7 @@ new-tab=true
 terminal='kitty'
 
 [org/gnome/control-center]
-last-panel='background'
+last-panel='system'
 window-state=(980, 640, true)
 
 [org/gnome/desktop/app-folders]
@@ -21,7 +21,7 @@ name='X-GNOME-Shell-System.directory'
 translate=true
 
 [org/gnome/desktop/app-folders/folders/Utilities]
-apps=['org.gnome.Loupe.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Snapshot.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Extensions.desktop', 'org.gnome.tweaks.desktop']
+apps=['org.gnome.Loupe.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Snapshot.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Extensions.desktop', 'org.gnome.tweaks.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'timeshift-gtk.desktop']
 name='X-GNOME-Shell-Utilities.directory'
 translate=true
 
@@ -55,6 +55,7 @@ xkb-options=['terminate:ctrl_alt_bksp']
 clock-show-weekday=true
 color-scheme='prefer-dark'
 enable-hot-corners=false
+icon-theme='breeze-extra-dark'
 monospace-font-name='RobotoMono Nerd Font 10'
 show-battery-percentage=true
 
@@ -112,9 +113,12 @@ power-button-action='interactive'
 
 [org/gnome/shell]
 app-picker-layout=[{'Utilities': <{'position': <0>}>, 'System': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'nvim.desktop': <{'position': <3>}>}]
-enabled-extensions=['no-overview@fthx', 'dash-to-panel@jderose9.github.com', 'system-monitor-next@paradoxxx.zero.gmail.com', 'caffeine@patapon.info', 'autoselectheadset@Anduril97.github.com']
-favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'kitty.desktop']
+enabled-extensions=['no-overview@fthx', 'dash-to-panel@jderose9.github.com', 'system-monitor-next@paradoxxx.zero.gmail.com', 'caffeine@patapon.info', 'autoselectheadset@Anduril97.github.com', 'arch-update@RaphaelRochet']
+favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'android-studio.desktop', 'kitty.desktop']
 welcome-dialog-last-shown-version='49.3'
+
+[org/gnome/shell/extensions/arch-update]
+update-cmd='kitty -- /bin/sh -c "sudo pacman -Syyu ; pkill kitty" '
 
 [org/gnome/shell/extensions/caffeine]
 cli-toggle=true

@@ -192,6 +192,7 @@ elif command -v pacman &>/dev/null; then
     install_package_no_recommendations "libgtop" "GObject introspection data for libgtop"
     # install_package_no_recommendations "libarchive" "LibArchive: gnome archiving tool,(badunzip, bsdtar ...etc). A utility for compressing and decompressing"
     #install_package_no_recommendations "clutter" "GObject introspection data for Clutter"
+    install_package "pacman-contrib" "pacman contrib: an important library and dependency for arch update indicator extension"
 
 fi
 

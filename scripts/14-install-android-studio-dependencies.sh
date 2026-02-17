@@ -131,8 +131,8 @@ elif [ "$DISTRO" = "arch" ]; then
     install_package "libglvnd" "OpenGL vendor-neutral dispatch library"
 
     # --- JDK ---
-    show_title "Install open JDK"
-    install_package "jdk-openjdk" "Java Development Kit (OpenJDK)"
+    #show_title "Install open JDK"
+    #install_package "jdk-openjdk" "Java Development Kit (OpenJDK)"
 
     # --- KVM & Virtualization ---
     show_title "Install KVM and Virtualization Tools"
