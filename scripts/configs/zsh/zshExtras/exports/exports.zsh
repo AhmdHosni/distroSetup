@@ -20,7 +20,7 @@ export ANDROID_STUDIO_DIR="$ANDROID_DIR/android-studio/bin"         # location o
 # ANDROID_SDK_ROOT, which also points to the SDK installation directory, is deprecated. 
 # If you continue to use it, Android Studio and the Android Gradle plugin will check that the old and new variables are consistent
 export ANDROID_HOME=$ANDROID_DIR/sdk
-export JAVA_HOME=$ANDROID_HOME/openJDK-26              # location of openJDK portable
+#export JAVA_HOME=$ANDROID_HOME/openJDK-26              # location of openJDK portable
 
 
 # ANDROID_USER_HOME (.android)
