@@ -492,7 +492,6 @@ load_scripts() {
     local config_file="${SCRIPTS_FOLDER}/scripts.conf"
 
     if [ -f "$config_file" ]; then
-        print_info "Loading scripts from configuration: $config_file"
         while IFS= read -r line || [ -n "$line" ]; do
             [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
             IFS='|' read -r script_name run_as_root description <<<"$line"
@@ -512,6 +511,8 @@ load_scripts() {
 }
 
 print_info "Detecting scripts in: $SCRIPTS_FOLDER"
+# Check config file and print BEFORE mapfile (not inside the function - stdout is captured by mapfile!)
+[ -f "${SCRIPTS_FOLDER}/scripts.conf" ] && print_info "Loading scripts from configuration: ${SCRIPTS_FOLDER}/scripts.conf"
 mapfile -t SCRIPTS < <(load_scripts)
 
 if [ ${#SCRIPTS[@]} -eq 0 ]; then

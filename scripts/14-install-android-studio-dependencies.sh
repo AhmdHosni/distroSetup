@@ -80,8 +80,8 @@ if [ "$DISTRO" = "debian" ]; then
     install_package "libbz2-1.0:i386" "32-bit bzip2 compression library"
 
     # --- JDK ---
-    # show_title "Install open JDK"
-    # install_package "openjdk-25-jdk" "Java Development Kit 25"
+    show_title "Install open JDK"
+    install_package "openjdk-25-jdk" "Java Development Kit 25"
 
     # --- Flutter dependencies  ---
     show_title "Install Fluttr dependencies"
@@ -131,8 +131,8 @@ elif [ "$DISTRO" = "arch" ]; then
     install_package "libglvnd" "OpenGL vendor-neutral dispatch library"
 
     # --- JDK ---
-    #show_title "Install open JDK"
-    #install_package "jdk-openjdk" "Java Development Kit (OpenJDK)"
+    show_title "Install open JDK"
+    install_package "jdk-openjdk" "Java Development Kit (OpenJDK)"
 
     # --- KVM & Virtualization ---
     show_title "Install KVM and Virtualization Tools"
