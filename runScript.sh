@@ -448,9 +448,11 @@ ask_install() {
 execute_script() {
     local script_path=$1
     local run_as_root=$2
+    local current_num=$3
+    local total_num=$4
     local script_name=$(basename "$script_path")
 
-    print_section "Executing: $script_name"
+    print_section "Executing: $script_name ($current_num/$total_num)"
 
     if [ ! -f "$script_path" ]; then
         print_error "Script not found: $script_path"
@@ -650,7 +652,7 @@ main() {
 
         save_state $i
 
-        if execute_script "$script_path" "$run_as_root"; then
+        if execute_script "$script_path" "$run_as_root" "$((i + 1))" "$total_scripts"; then
             update_stats successful
 
             if check_reboot; then
