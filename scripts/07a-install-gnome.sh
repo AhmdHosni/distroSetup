@@ -186,7 +186,7 @@ elif command -v pacman &>/dev/null; then
     install_package_no_recommendations "gdm" "Display Manager: Handles the login screen and user session switching"
     sudo systemctl enable gdm
     install_package_no_recommendations "firefox" "A web browser way better than gnome default browser"
-    install_package_no_recommendations "extension-manager" "Extension Manager: A native tool to install and update desktop extensions through firefox"
+    #install_package_no_recommendations "extension-manager" "Extension Manager: A native tool to install and update desktop extensions through firefox"
     install_package_no_recommendations "gnome-browser-connector" "Gnome browser connector is a dependency for extension install"
     # for system monitor next extension
     install_package_no_recommendations "libgtop" "GObject introspection data for libgtop"
