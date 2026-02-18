@@ -112,6 +112,8 @@ if command -v apt-get &>/dev/null; then
     install_package "fonts-noto-color-emoji" "Font: fonts-noto-color-emoji is a Noto  font for coloured emojies"
 else
     install_package "noto-fonts-emoji" "Font: fonts-noto-color-emoji is a Noto  font for coloured emojies"
+    install_package "which" "Installing 'which' which is an important package seems to be missing with arch base install"
+
 fi
 ######################
 ## Copying zsh files :

@@ -193,6 +193,7 @@ elif command -v pacman &>/dev/null; then
     # install_package_no_recommendations "libarchive" "LibArchive: gnome archiving tool,(badunzip, bsdtar ...etc). A utility for compressing and decompressing"
     #install_package_no_recommendations "clutter" "GObject introspection data for Clutter"
     install_package "pacman-contrib" "pacman contrib: an important library and dependency for arch update indicator extension"
+    install_package "fakeroot" "Fakeroot: needed library to check for update with arch update indicator"
 
 fi
 

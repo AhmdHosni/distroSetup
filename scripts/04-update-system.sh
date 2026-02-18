@@ -25,11 +25,6 @@ cache_sudo
 
 show_title "GNOME 48/49 Installation Script" "Detected: ${DISTRO}"
 
-# install missing packages at arch
-if [ -x /usr/bin/pacman ]; then
-    install_package "which" "Installing 'which' which is an important package seems to be missing with arch base install"
-fi
-
 # update the system
 system_update
 
