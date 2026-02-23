@@ -51,7 +51,7 @@ show_title "INSTALLING GNOME PACKAGES ON $DISTRO"
 # Clean the debian system:
 #########################
 #show_title "Removing old unused system packages"
-system_clean
+#system_clean
 
 #########################
 # INSTALL GNOME PACKAGES:
