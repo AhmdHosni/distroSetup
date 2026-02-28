@@ -192,17 +192,22 @@ fi
 
 
 # os spicific aliases
-    alias update='SUDO_PASS="1262" bash "/media/ahmdhosni/Storage/Settings/gitRepos/distroSetup/scripts/04-update-system.sh"'
-    alias clean="echo '1262' | sudo -S -k bash '/media/ahmdhosni/Storage/Settings/gitRepos/distroSetup/scripts/clean.sh'"
-    alias reboot="echo '1262' | sudo -S -k reboot"
+if [ -f /usr/bin/pacman ]; then
+    alias update="echo 1262 | sudo -S -k pacman -Syyu --noconfirm"
+elif [ -f /usr/bin/apt ]; then
+    alias update="echo 1262 | sudo -S -k apt-get update -y && echo 1262 | sudo -S -k apt-get upgrade -y && echo 1262 | sudo -S -k apt-get dist-upgrade -y"
+    alias clean="echo 1262 | sudo -S -k apt-get autoremove"
+    alias reboot="echo 1262 | sudo -S -k reboot"
+fi
 
 # nvim portable version if non is installed
 if [ ! -f /usr/bin/nvim ]; then
-    alias nvim="/media/ahmdhosni/Storage/Apps/neovim/nvim/nvim-linux.appimage"
-    alias vi='nvim'
-    alias vim='nvim'
-    alias svi='sudo nvim'
-    alias vis='nvim "+set si"'
+alias nvim="/media/ahmdhosni/Storage/Apps/neovim/nvim/nvim-linux.appimage"
+alias vi='nvim'
+alias vim='nvim'
+alias svi='sudo nvim'
+alias vis='nvim "+set si"'
+
 fi
 
 

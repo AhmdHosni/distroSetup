@@ -1,0 +1,43 @@
+# --- General Settings ---
+# Start window/pane numbering at 1 (more intuitive for keyboard navigation)
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Increase scrollback history limit
+set -g history-limit 10000
+
+# Enable mouse support (resizing, clicking panes, scrolling)
+set -g mouse on
+
+# Renumber windows automatically when one is closed
+set -g renumber-windows on
+
+# Fix escape-time delay for Vim users
+set -sg escape-time 0
+
+# --- Key Bindings ---
+# Change prefix from Ctrl-b to Ctrl-a (more ergonomic)
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+# Easy config reload
+bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+
+# Better pane splitting (using | and -)
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+unbind '"'
+unbind %
+
+# Vim-style pane navigation
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# --- Visuals ---
+# Status bar styling
+set -g status-position bottom
+set -g status-bg black
+set -g status-fg white

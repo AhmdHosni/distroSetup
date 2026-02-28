@@ -122,12 +122,16 @@ export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 ## Ollama
 export OLLAMA_MODELS=$XDG_DATA_HOME/ollama/models
 
-
 ## vsCode
 VSCODE_PORTABLE="/media/ahmdhosni/Storage/Apps/vsCode/VSCode"
 export VSCODE_APPDATA="$VSCODE_PORTABLE/data/user-data"
 export VSCODE_EXTENSIONS="$VSCODE_PORTABLE/data/extensions"
+## Platformio 
 export PLATFORMIO_CORE_DIR="/media/ahmdhosni/Storage/Apps/vsCode/VSCode/data/platformio"
+## ~/.dotnet
+export DOTNET_CLI_HOME="$XDG_CONFIG_HOME/dotnet"
+## nss 
+export NSS_DEFAULT_DB_DIR="$XDG_DATA_HOME/nss"
 
 
 ## Java (openJDK)
@@ -200,6 +204,5 @@ export _JAVA_AWT_WM_NONREPARENTING=1      # Fix for Java applications in dwm
 # Extra exports :
 # ##############
 if [ -f /usr/share/zsh/zshExtras/exports/exports.zsh ]; then source /usr/share/zsh/zshExtras/exports/exports.zsh; fi
-
 
 
