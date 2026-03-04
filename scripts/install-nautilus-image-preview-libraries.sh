@@ -38,7 +38,7 @@ if command -v apt-get &>/dev/null; then
     # To see thumbnails for camera raw files, install exiv2
     install_package "exiv2" " To see thumbnails for camera raw file"
     # To see thumbnails for raw images
-    install_package "nautilus-raw-thumbnails" "To see thumbnails for raw images"
+    # install_package "nautilus-raw-thumbnails" "To see thumbnails for raw images"
     # To generate previews for video files (Video Thumbnails)
     install_package "ffmpegthumbnailer" "To generate previews for video files (Video Thumbnails)"
     # Sushi: Cool nautilus plugin. Recommended for a quick previewer (press Spacebar in Nautilus

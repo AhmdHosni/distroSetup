@@ -46,9 +46,11 @@ FOLDER_ICON_SOURCE_FILE="$THIS_DIR/configs/icons/pngs/android.png"
 LOCAL_ICON_FOLDER="$HOME/.local/share/icons/pngs" && mkdir -p $LOCAL_ICON_FOLDER
 #copy_file "$FOLDER_ICON_SOURCE_FILE" "$LOCAL_ICON_FOLDER"
 
-# setting the folder icon to ~/.android
-TARGET_FOLDER="$HOME/.android" && mkdir -p $TARGET_FOLDER
-set_folder_icon "$TARGET_FOLDER" "$LOCAL_ICON_FOLDER/android.png" "setting custom icon to .android folder"
+# setting the folder icon to ~/.android and ~/.java
+_ANDROID_TARGET_FOLDER="$HOME/.android" && mkdir -p $_ANDROID_TARGET_FOLDER
+_JAVA_TARGET_FOLDER="$HOME/.java" && mkdir -p $_JAVA_TARGET_FOLDER
+set_folder_icon "$_ANDROID_TARGET_FOLDER" "$LOCAL_ICON_FOLDER/android.png" "setting custom icon to ~/.android folder"
+set_folder_icon "$_JAVA_TARGET_FOLDER" "$LOCAL_ICON_FOLDER/java.png" "setting custom icon to ~/.java folder"
 
 #####################
 # Main Install
@@ -92,17 +94,17 @@ if [ "$DISTRO" = "debian" ]; then
     install_package "xz-utils"
     install_package "libglu1-mesa"
 
-    # # --- KVM & Virtualization ---
-    # show_title "Install KVM and Virtualization Tools"
-    # install_package "qemu-kvm" "QEMU/KVM hypervisor"
-    # install_package "libvirt-daemon-system" "Libvirt virtualization daemon"
-    # install_package "libvirt-clients" "Libvirt client tools"
-    # install_package "bridge-utils" "Network bridge utilities"
-    # install_package "virt-manager" "Graphical VM manager for GNOME"
-    #
-    # # --- User permissions ---
-    # show_title "Grant User Permissions to libvirt and kvm"
-    # add_user_to_groups libvirt kvm
+    # --- KVM & Virtualization ---
+    show_title "Install KVM and Virtualization Tools"
+    install_package "qemu-kvm" "QEMU/KVM hypervisor"
+    install_package "libvirt-daemon-system" "Libvirt virtualization daemon"
+    install_package "libvirt-clients" "Libvirt client tools"
+    install_package "bridge-utils" "Network bridge utilities"
+    install_package "virt-manager" "Graphical VM manager for GNOME"
+
+    # --- User permissions ---
+    show_title "Grant User Permissions to libvirt and kvm"
+    add_user_to_groups libvirt kvm
 
     # --- Enable services ---
     show_title "Enable libvirt Services"
@@ -131,24 +133,24 @@ elif [ "$DISTRO" = "arch" ]; then
     install_package "libglvnd" "OpenGL vendor-neutral dispatch library"
 
     # --- JDK ---
-    # show_title "Install open JDK"
-    # install_package "jdk-openjdk" "Java Development Kit (OpenJDK)"
+    show_title "Install open JDK"
+    install_package "jdk-openjdk" "Java Development Kit (OpenJDK)"
 
-    # # --- KVM & Virtualization ---
-    # show_title "Install KVM and Virtualization Tools"
-    # install_package "qemu-base" "QEMU base package"
-    # install_package "libvirt" "Libvirt virtualization library"
-    # install_package "dnsmasq" "DNS/DHCP server for virtual networks"
-    # install_package "virt-manager" "Graphical VM manager"
-    # install_package "bridge-utils" "Network bridge utilities"
-    #
-    # # --- User permissions ---
-    # show_title "Grant User Permissions"
-    # add_user_to_groups kvm libvirt
-    #
-    # # --- Enable services ---
-    # show_title "Enable Libvirt Services"
-    # enable_service "libvirtd"
+    # --- KVM & Virtualization ---
+    show_title "Install KVM and Virtualization Tools"
+    install_package "qemu-base" "QEMU base package"
+    install_package "libvirt" "Libvirt virtualization library"
+    install_package "dnsmasq" "DNS/DHCP server for virtual networks"
+    install_package "virt-manager" "Graphical VM manager"
+    install_package "bridge-utils" "Network bridge utilities"
+
+    # --- User permissions ---
+    show_title "Grant User Permissions"
+    add_user_to_groups kvm libvirt
+
+    # --- Enable services ---
+    show_title "Enable Libvirt Services"
+    enable_service "libvirtd"
 
 fi
 

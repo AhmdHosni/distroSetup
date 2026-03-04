@@ -46,14 +46,14 @@ export GRADLE_USER_HOME=$ANDROID_HOME/custom/.gradle
 #Sets the location of the studio.vmoptions file. 
 #This file contains settings that affect the performance characteristics of the Java HotSpot Virtual Machine. 
 #This file can also be accessed from within Android Studio
-export STUDIO_VM_OPTIONS=$ANDROID_HOME/custom/studio.vmoptions   
+# export STUDIO_VM_OPTIONS=$ANDROID_HOME/custom/studio.vmoptions   
 
 
 # studio-properties
 # Sets the location of the idea.properties file. 
 # This file lets you customize Android Studio IDE properties, 
 # such as the path to user installed plugins and the maximum file size supported by the IDE
-export STUDIO_PROPERTIES=$ANDROID_HOME/custom/idea.properties
+# export STUDIO_PROPERTIES=$ANDROID_HOME/custom/idea.properties
 
 
 # STUDIO_JDK
