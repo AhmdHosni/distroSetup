@@ -92,17 +92,17 @@ if [ "$DISTRO" = "debian" ]; then
     install_package "xz-utils"
     install_package "libglu1-mesa"
 
-    # --- KVM & Virtualization ---
-    show_title "Install KVM and Virtualization Tools"
-    install_package "qemu-kvm" "QEMU/KVM hypervisor"
-    install_package "libvirt-daemon-system" "Libvirt virtualization daemon"
-    install_package "libvirt-clients" "Libvirt client tools"
-    install_package "bridge-utils" "Network bridge utilities"
-    install_package "virt-manager" "Graphical VM manager for GNOME"
-
-    # --- User permissions ---
-    show_title "Grant User Permissions to libvirt and kvm"
-    add_user_to_groups libvirt kvm
+    # # --- KVM & Virtualization ---
+    # show_title "Install KVM and Virtualization Tools"
+    # install_package "qemu-kvm" "QEMU/KVM hypervisor"
+    # install_package "libvirt-daemon-system" "Libvirt virtualization daemon"
+    # install_package "libvirt-clients" "Libvirt client tools"
+    # install_package "bridge-utils" "Network bridge utilities"
+    # install_package "virt-manager" "Graphical VM manager for GNOME"
+    #
+    # # --- User permissions ---
+    # show_title "Grant User Permissions to libvirt and kvm"
+    # add_user_to_groups libvirt kvm
 
     # --- Enable services ---
     show_title "Enable libvirt Services"
@@ -134,21 +134,21 @@ elif [ "$DISTRO" = "arch" ]; then
     # show_title "Install open JDK"
     # install_package "jdk-openjdk" "Java Development Kit (OpenJDK)"
 
-    # --- KVM & Virtualization ---
-    show_title "Install KVM and Virtualization Tools"
-    install_package "qemu-base" "QEMU base package"
-    install_package "libvirt" "Libvirt virtualization library"
-    install_package "dnsmasq" "DNS/DHCP server for virtual networks"
-    install_package "virt-manager" "Graphical VM manager"
-    install_package "bridge-utils" "Network bridge utilities"
-
-    # --- User permissions ---
-    show_title "Grant User Permissions"
-    add_user_to_groups kvm libvirt
-
-    # --- Enable services ---
-    show_title "Enable Libvirt Services"
-    enable_service "libvirtd"
+    # # --- KVM & Virtualization ---
+    # show_title "Install KVM and Virtualization Tools"
+    # install_package "qemu-base" "QEMU base package"
+    # install_package "libvirt" "Libvirt virtualization library"
+    # install_package "dnsmasq" "DNS/DHCP server for virtual networks"
+    # install_package "virt-manager" "Graphical VM manager"
+    # install_package "bridge-utils" "Network bridge utilities"
+    #
+    # # --- User permissions ---
+    # show_title "Grant User Permissions"
+    # add_user_to_groups kvm libvirt
+    #
+    # # --- Enable services ---
+    # show_title "Enable Libvirt Services"
+    # enable_service "libvirtd"
 
 fi
 

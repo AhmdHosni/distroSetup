@@ -113,6 +113,9 @@ if command -v apt-get &>/dev/null; then
 else
     install_package "noto-fonts-emoji" "Font: fonts-noto-color-emoji is a Noto  font for coloured emojies"
     install_package "which" "Installing 'which' which is an important package seems to be missing with arch base install"
+    install_package "terminus-font" "Terminus-font: a font that can react better with icons inside tty"
+    # set the font to the tty in /etc/vconsole.conf
+    copy_file "$ZSH_CONFIGS_SOURCE_DIR/vconsole.conf" "/etc" "Copying vconsole config file for better icon display on arch tty"
 
 fi
 ######################
