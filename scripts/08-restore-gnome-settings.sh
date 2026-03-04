@@ -35,7 +35,7 @@ EXTENSION_DEST="$HOME/.local/share/gnome-shell"
 # Wallpapers
 WALLPAPER_SOURCE_DIR="$GNOME_SETTINGS_DIR/backgrounds"
 WALLPAPER_DEBIAN="$WALLPAPER_SOURCE_DIR/sunset.jpg"
-WALLPAPER_ARCH="$WALLPAPER_SOURCE_DIR/samurai.jpg"
+WALLPAPER_ARCH="$WALLPAPER_SOURCE_DIR/sunset.jpg"
 WALLPAPER_DEST="$HOME/.local/share/backgrounds"
 
 # Icons
