@@ -52,10 +52,7 @@ monospace-font-name='RobotoMono Nerd Font 10'
 show-battery-percentage=true
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-tweaks', 'gnome-power-panel']
-
-[org/gnome/desktop/notifications/application/gnome-power-panel]
-application-id='gnome-power-panel.desktop'
+application-children=['org-gnome-tweaks']
 
 [org/gnome/desktop/notifications/application/org-gnome-tweaks]
 application-id='org.gnome.tweaks.desktop'
@@ -90,11 +87,7 @@ show-delete-permanently=true
 
 [org/gnome/nautilus/window-state]
 initial-size=(890, 550)
-initial-size-file-chooser=(890, 550)
 maximized=true
-
-[org/gnome/portal/filechooser/org.gnome.Nautilus]
-last-folder-path='/home/ahmdhosni/.local/share/icons/pngs'
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-schedule-automatic=false
@@ -105,7 +98,7 @@ power-button-action='interactive'
 [org/gnome/shell]
 app-picker-layout=[{'Utilities': <{'position': <0>}>, 'System': <{'position': <1>}>, 'org.gnome.Settings.desktop': <{'position': <2>}>, 'nvim.desktop': <{'position': <3>}>}]
 enabled-extensions=['autoselectheadset@josephlbarnett.github.com', 'caffeine@patapon.info', 'dash-to-panel@jderose9.github.com', 'no-overview@fthx', 'system-monitor-next@paradoxxx.zero.gmail.com']
-favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'android-studio.desktop', 'vsCode.desktop', 'kitty.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'android-studio.desktop', 'kitty.desktop']
 welcome-dialog-last-shown-version='48.7'
 
 [org/gnome/shell/extensions/caffeine]
