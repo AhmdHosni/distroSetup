@@ -198,7 +198,7 @@ fi
 
 # nvim portable version if non is installed
 if [ ! -f /usr/bin/nvim ]; then
-    # alias nvim="/media/ahmdhosni/Storage/Apps/neovim/nvim/nvim-linux.appimage"
+    alias nvim="/media/ahmdhosni/Storage/Apps/neovim/nvim/nvim-linux.appimage"
     alias vi='nvim'
     alias vim='nvim'
     alias svi='sudo nvim'
@@ -206,15 +206,5 @@ if [ ! -f /usr/bin/nvim ]; then
 fi
 
 
-## Antigravity
-# alias antigravity='antigravity --user-data-dir "$XDG_CONFIG_HOME/antigravity" --extensions-dir "$XDG_DATA_HOME/antigravity/extensions"'
-# Combine HOME override and CLI flags into one alias
-if command -v antigravity &>/dev/null; then
-    alias agr='antigravity --user-data-dir "${XDG_CONFIG_HOME:-$HOME/.config}/antigravity" --extensions-dir "${XDG_DATA_HOME:-$HOME/.local/share}/antigravity/extensions"'
-fi 
 
-## VSCode
-if command -v code &>/dev/null; then
-    alias vsCode='code --user-data-dir "${XDG_CONFIG_HOME:-$HOME/.config}/vsCode/user-data" --extensions-dir "${XDG_DATA_HOME:-$HOME/.local/share}/vsCode/extensions"'
-fi 
 

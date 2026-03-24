@@ -38,6 +38,9 @@ copyThemeFiles() {
 
 }
 
+## adding system editor to sudoers so that i can set a custom system editor.
+echo 'Defaults env_keep += "EDITOR VISUAL SYSTEMD_EDITOR"' | sudo tee /etc/sudoers.d/editors && sudo chmod 440 /etc/sudoers.d/editors
+
 copyThemeFiles
 
 if command -v apt-get >/dev/null; then

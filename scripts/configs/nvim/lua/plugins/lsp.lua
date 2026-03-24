@@ -229,6 +229,7 @@ return {
 				bashls = {},
 				marksman = {},
 				jdtls = {},
+				jsonls = {},
 
 				-- clangd = {},
 				-- gopls = {},
@@ -301,6 +302,7 @@ return {
 				"black", -- needed for conform
 				"isort", -- needed for Conform
 				"prettier", -- needed for conform
+				"jq", -- format json and jsonc
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -346,6 +348,10 @@ return {
 				-- Conform will run the first available formatter
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				typescript = { "prettierd", "prettier", stop_after_first = true },
+				-- Map jsonc to prettier
+				jsonc = { "jq", "prettier", stop_after_first = true },
+				-- Optional: also map standard json
+				json = { "jq", "prettier", stop_after_first = true },
 			},
 			format_on_save = {
 				-- These options will be passed to conform.format()

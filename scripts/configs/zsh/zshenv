@@ -47,6 +47,7 @@ unsetopt PROMPT_SP 2>/dev/null
 export EDITOR=nvim visudo
 export VISUAL=nvim visudo
 export SUDO_EDITOR=nvim
+export SYSTEMD_EDITOR=nvim
 export FCEDIT=nvim
 export TERMINAL=kitty
 export BROWSER=firefox
@@ -125,12 +126,20 @@ export PATH="$XDG_DATA_HOME/cargo/bin:$PATH"
 ## Ollama
 export OLLAMA_MODELS=$XDG_DATA_HOME/ollama/models
 
+## OpenCode
+OPENCODE_CONFIG_DIR=$XDG_CONFIG_HOME/opencode
+OPENCODE_CONFIG=$OPENCODE_CONFIG_DIR/opencode.json
+
+
+## claud Cli 
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+
 
 ## vsCode
-VSCODE_PORTABLE="/media/ahmdhosni/Storage/Apps/vsCode/VSCode"
-export VSCODE_APPDATA="$VSCODE_PORTABLE/data/user-data"
-export VSCODE_EXTENSIONS="$VSCODE_PORTABLE/data/extensions"
-export PLATFORMIO_CORE_DIR="/media/ahmdhosni/Storage/Apps/vsCode/VSCode/data/platformio"
+# VSCODE_PORTABLE="/media/ahmdhosni/Storage/Apps/vsCode/VSCode"
+# export VSCODE_APPDATA="$VSCODE_PORTABLE/data/user-data"
+# export VSCODE_EXTENSIONS="$VSCODE_PORTABLE/data/extensions"
+export PLATFORMIO_CORE_DIR="$XDG_DATA_HOME/vsCode/extensions/platformio"
 
 
 ## Java (openJDK)
@@ -203,6 +212,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1      # Fix for Java applications in dwm
 # Extra exports :
 # ##############
 if [ -f /usr/share/zsh/zshExtras/exports/exports.zsh ]; then source /usr/share/zsh/zshExtras/exports/exports.zsh; fi
+
 
 
 
