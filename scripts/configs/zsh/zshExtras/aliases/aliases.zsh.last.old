@@ -218,7 +218,3 @@ if command -v code &>/dev/null; then
     alias vsCode='code --user-data-dir "${XDG_CONFIG_HOME:-$HOME/.config}/vsCode/user-data" --extensions-dir "${XDG_DATA_HOME:-$HOME/.local/share}/vsCode/extensions"'
 fi 
 
-## VScodium
-if command -v vsCodium &>/dev/null; then
-    alias codium='vsCodium --disable-workspace-trust --user-data-dir "/media/$USER/Storage/Apps/vsCodium/data/user-data" --extensions-dir "/media/$USER/Storage/Apps/vsCodium/data/extensions"'
-fi
