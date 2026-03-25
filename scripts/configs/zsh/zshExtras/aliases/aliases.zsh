@@ -220,5 +220,15 @@ fi
 
 ## VScodium
 if command -v vsCodium &>/dev/null; then
-    alias codium='vsCodium --disable-workspace-trust --user-data-dir "/media/$USER/Storage/Apps/vsCodium/data/user-data" --extensions-dir "/media/$USER/Storage/Apps/vsCodium/data/extensions"'
+    # alias codium='vsCodium --disable-workspace-trust --user-data-dir "/media/$USER/Storage/Apps/vsCodium/data/user-data" --extensions-dir "/media/$USER/Storage/Apps/vsCodium/data/extensions" . > /dev/null 2>&1 & disown'
+    codium() {
+    # If no arguments are provided, default to current directory "."
+    local target="${@:-.}"
+    
+    /usr/local/bin/vsCodium --disable-workspace-trust \
+        --user-data-dir "/media/$USER/Storage/Apps/vsCodium/data/user-data" \
+        --extensions-dir "/media/$USER/Storage/Apps/vsCodium/data/extensions" \
+        $target > /dev/null 2>&1 & disown
+}
+
 fi
