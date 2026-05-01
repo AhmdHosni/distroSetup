@@ -229,49 +229,6 @@ if command -v vsCodium &>/dev/null; then
         --user-data-dir "/media/$USER/Storage/Apps/vsCodium/data/user-data" \
         --extensions-dir "/media/$USER/Storage/Apps/vsCodium/data/extensions" \
         $target > /dev/null 2>&1 & disown
-    pkill $TERMINAL
 }
 
 fi
-
-
-
-if command -v pacman &>/dev/null; then
-# This function automates the manual AUR process: 
-# it clones the repository to a temporary directory, 
-# runs makepkg -si to build and install it, and then cleans up
-# Usage: aur_install <package_name>
-aur() {
-  if [ -z "$1" ]; then
-    echo "Usage: aur_install <package_name>"
-    return 1
-  fi
-  local pkg="$1"
-  local tmp_dir=$(mktemp -d)
-  
-  echo "Cloning $pkg from AUR..."
-  git clone "https://aur.archlinux.org/${pkg}.git" "$tmp_dir" && \
-  (cd "$tmp_dir" && makepkg -si) && \
-  rm -rf "$tmp_dir"
-}
-fi 
-
-
-# This function is for general software 
-# that follows the standard clone -> cd -> make -> sudo make install workflow
-# Usage: git_install <repo_url>
-git_install() {
-  if [ -z "$1" ]; then
-    echo "Usage: git_install <repo_url>"
-    return 1
-  fi
-  local url="$1"
-  local repo_name=$(basename "$url" .git)
-  local tmp_dir=$(mktemp -d)
-
-  echo "Installing $repo_name from source..."
-  git clone "$url" "$tmp_dir" && \
-  (cd "$tmp_dir" && make && sudo make install) && \
-  rm -rf "$tmp_dir"
-}
-

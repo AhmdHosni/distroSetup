@@ -15,14 +15,12 @@
 #include GruvBox_DarkHard.conf
 #include Wryan.conf
 #include VSCode_Dark.conf
-# include ./themes/OneDark.conf
-include ~/.cache/wal/colors-kitty.conf
 
 # background color
 # background #1b1b1b
-# background #121212
+background #121212
 # terminal opacity and blur
-background_opacity 0.9
+background_opacity 1.0
 background_blur 1
 
 # advance 
@@ -35,7 +33,7 @@ enable_audio_bell no
 linux_display_server x11
 
 # font
-font_family        RobotoMono Nerd Font Mono
+font_family        RobotoMono Nerd Font
 bold_font          auto
 italic_font        auto
 bold_italic_font   auto
@@ -55,12 +53,6 @@ shell_integration no-cursor
 scrollback_lines 5000
 wheel_scroll_multiplier 3.0
 
-# scrollbar visibility
-scrollbar_handle_opacity 0
-scrollbar_track_opacity 0
-scrollbar_track_hover_opacity 0
-
-
 # mouse
 mouse_hide_wait -1
 
@@ -70,10 +62,9 @@ initial_window_width  1200
 initial_window_height 750
 window_border_width 1.5pt
 enabled_layouts tall
-window_padding_width 25
+window_padding_width 0
 window_margin_width 2
 hide_window_decorations no
-confirm_os_window_close 0
 
 # window management 
 map ctrl+shift+enter new_window
@@ -98,7 +89,3 @@ map ctrl+shift+t new_tab
 map ctrl+shift+right next_tab
 map ctrl+shift+left previous_tab
 map ctrl+shift+q close_tab
-
-
-# sync to monitor 
-sync_to_monitor no

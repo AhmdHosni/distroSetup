@@ -103,7 +103,7 @@ else
     {
         echo ""
         echo "# Storage device - Auto-mounted"
-        echo "UUID=$UUID    $MOUNT_POINT    ntfs    defaults,uid=1000,gid=1000,dmask=000,fmask=000    0    3"
+        echo "UUID=$UUID    $MOUNT_POINT    ntfs    defaults,uid=1000,gid=1000,dmask=000,fmask=000    0    0"
     } | sudo tee -a /etc/fstab >/dev/null
 
     if [ $? -eq 0 ]; then
