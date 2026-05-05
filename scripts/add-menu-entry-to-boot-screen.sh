@@ -15,11 +15,11 @@
 add_system_utils() {
     cat <<'EOF' | sudo tee -a /etc/grub.d/40_custom
 
-menuentry 'System Reboot' --class restart {
+menuentry 'Reboot' --class restart {
     reboot
 }
 
-menuentry 'System Power Off' --class shutdown {
+menuentry 'Power Off' --class shutdown {
     halt
 }
 EOF
