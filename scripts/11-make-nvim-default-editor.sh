@@ -17,7 +17,7 @@ cache_sudo
 
 # 1. Paths (Update NVIM_PATH to your actual SD card mount point)
 STORAGE_DIR="/media/$USER/Storage"
-NVIM_PATH="$STORAGE_DIR/Apps/neovim/nvim/nvim-linux.appimage"
+NVIM_PATH="$STORAGE_DIR/Apps/Neovim/nvim/nvim-linux.appimage"
 ICON_DIR="$STORAGE_DIR/Pictures/icons" # update it to where you stored icons in your system
 ICON_PATH="$ICON_DIR/neovim.svg"
 DESKTOP_FILE="$HOME/.local/share/applications/nvim.desktop"

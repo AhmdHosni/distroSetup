@@ -257,7 +257,18 @@ system_update_quiet() {
             return 1
         fi
     else
-        if sudo pacman -Syyu --noconfirm &>/dev/null; then
+    
+    
+        if command -v paru &>/dev/null; then
+            INSTALL_CMD="sudo paru -Syyu --noconfirm"
+        elif command -v yay &>/dev/null; then
+            INSTALL_CMD="sudo yay -Syyu --noconfirm"
+        else 
+            INSTALL_CMD="sudo pacman -Syyu --noconfirm"
+
+
+        
+        if $INSTALL_CMD &>/dev/null; then
             echo -e "${GREEN}✓ System update completed successfully${NC}"
         else
             echo -e "${RED}✗ System update failed${NC}"
@@ -278,24 +289,19 @@ system_update() {
 
     # Build command based on distro
     local update_command
-    local use_sudo # ← declare which will use sudo password, i will set per-branch below
-
     if [ "$DISTRO" = "debian" ]; then
         update_command="apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y"
-        # echo -e "${CYAN}Running: apt-get update && apt-get upgrade && apt-get dist-upgrade${NC}"
-        use_sudo="true" # apt-get needs root
+        echo -e "${CYAN}Running: apt-get update && apt-get upgrade && apt-get dist-upgrade${NC}"
     else
-        # update_command="pacman -Syyu --noconfirm"
         if command -v paru &>/dev/null; then
             update_command="paru -Syyu --noconfirm"
-            use_sudo="false" # paru MUST run as normal user
         elif command -v yay &>/dev/null; then
             update_command="yay -Syyu --noconfirm"
-            use_sudo="false" # yay MUST run as normal user
         else
             update_command="pacman -Syyu --noconfirm"
-            use_sudo="true" # plain pacman needs root
         fi
+
+
 
         echo -e "${CYAN}Running: $update_command ${NC}"
     fi
@@ -305,7 +311,7 @@ system_update() {
     echo ""
 
     # --- Update via tmux_run_command helper (2 second sleep, sudo=true) ---
-    if tmux_run_command "${update_command}" 2 "${use_sudo}"; then
+    if tmux_run_command "${update_command}" 2 "true"; then
         echo ""
         echo -e "${GREEN}✓ System update completed successfully${NC}"
         sleep 1
