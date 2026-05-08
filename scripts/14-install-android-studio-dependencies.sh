@@ -101,6 +101,7 @@ if [ "$DISTRO" = "debian" ]; then
     install_package "libvirt-clients" "Libvirt client tools"
     install_package "bridge-utils" "Network bridge utilities"
     install_package "virt-manager" "Graphical VM manager for GNOME"
+    install_package "dmidecode" "Dmidecode utility: Libvirt uses this to read hardware information (like BIOS versions and serial numbers) from the system’s DMI table"
 
     # --- User permissions ---
     show_title "Grant User Permissions to libvirt and kvm"
@@ -143,6 +144,7 @@ elif [ "$DISTRO" = "arch" ]; then
     install_package "dnsmasq" "DNS/DHCP server for virtual networks"
     install_package "virt-manager" "Graphical VM manager"
     install_package "bridge-utils" "Network bridge utilities"
+    install_package "dmidecode" "Dmidecode utility: Libvirt uses this to read hardware information (like BIOS versions and serial numbers) from the system’s DMI table"
 
     # --- User permissions ---
     show_title "Grant User Permissions"

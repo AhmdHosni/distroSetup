@@ -155,7 +155,8 @@ export PLATFORMIO_CORE_DIR="$XDG_DATA_HOME/vsCode/extensions/platformio"
 #export _JAVA_OPTIONS="-Duser.home=$XDG_CONFIG_HOME"
 #export JAVA_TOOL_OPTIONS="-Duser.home=$XDG_DATA_HOME/java"
 
-
+## Steam:
+export STEAM_COMPAT_DATA_PATH="$XDG_DATA_HOME/steam"
 
 #export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
