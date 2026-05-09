@@ -104,26 +104,26 @@ if [ "$DISTRO" = "debian" ]; then
 
     # --- KVM & Virtualization (Debian 13) ---
     ##show_title "Install KVM and Virtualization Tools"
-    install_package "qemu-system-x86" "QEMU base for x86 virtualization"
-    install_package "libvirt-daemon-system" "Libvirt virtualization daemon"
-    install_package "libvirt-clients" "Libvirt client-side tools"
-    install_package "dnsmasq-base" "Small forwarder for virtual networks"
-    install_package "virt-manager" "Graphical VM manager"
-    install_package "vde2" "Virtual Distributed Ethernet"
-    install_package "netcat-openbsd" "TCP/IP swiss army knife (OpenBSD version)"
-    install_package "dmidecode" "DMI table decoder"
-    install_package "swtpm" "Software TPM emulator for Windows 11"
-    install_package "ovmf" "UEFI firmware for virtual machines"
-    install_package "qemu-system-modules-spice" "Spice support for QEMU"
-    install_package "gir1.2-spiceclientgtk-3.0" "GObject introspection for Spice"
-
-    # --- User permissions ---
-    show_title "Grant User Permissions to libvirt and kvm"
-    add_user_to_groups libvirt kvm
-
-    # --- Enable services ---
-    show_title "Enable libvirt Services"
-    enable_service "libvirtd"
+    # install_package "qemu-system-x86" "QEMU base for x86 virtualization"
+    # install_package "libvirt-daemon-system" "Libvirt virtualization daemon"
+    # install_package "libvirt-clients" "Libvirt client-side tools"
+    # install_package "dnsmasq-base" "Small forwarder for virtual networks"
+    # install_package "virt-manager" "Graphical VM manager"
+    # install_package "vde2" "Virtual Distributed Ethernet"
+    # install_package "netcat-openbsd" "TCP/IP swiss army knife (OpenBSD version)"
+    # install_package "dmidecode" "DMI table decoder"
+    # install_package "swtpm" "Software TPM emulator for Windows 11"
+    # install_package "ovmf" "UEFI firmware for virtual machines"
+    # install_package "qemu-system-modules-spice" "Spice support for QEMU"
+    # install_package "gir1.2-spiceclientgtk-3.0" "GObject introspection for Spice"
+    #
+    # # --- User permissions ---
+    # show_title "Grant User Permissions to libvirt and kvm"
+    # add_user_to_groups libvirt kvm
+    #
+    # # --- Enable services ---
+    # show_title "Enable libvirt Services"
+    # enable_service "libvirtd"
 
 elif [ "$DISTRO" = "arch" ]; then
 
@@ -156,47 +156,47 @@ elif [ "$DISTRO" = "arch" ]; then
     # install_package "jdk-openjdk" "Java Development Kit (OpenJDK)"
 
     # --- KVM & Virtualization ---
-    show_title "Install KVM and Virtualization Tools"
-    install_package "qemu-base" "QEMU base package"
-    install_package "libvirt" "Libvirt virtualization library"
-    install_package "dnsmasq" "DNS/DHCP server for virtual networks"
-    install_package "virt-manager" "Graphical VM manager"
-    # install_package "bridge-utils" "Network bridge utilities"     # dpericated use iprout2 or get bridge-utils from aur.
-    install_package "vde2"
-    install_package "openbsd-netcat"
-    install_package "dmidecode"
-    install_package "swtpm" "Needed library if you want to install windows11"
-    install_package "libtpms" "Needed library if you want to install windows11"
-    install_package "edk2-ovmf" "Needed library if you want to install windows11"
-    install_package "qemu-hw-display-qxl" "Needed for qxl option of graphic adapter"
-    install_package "spice" "Needed for spice display option"
-    install_package "qemu-chardev-spice " "Needed for spice display option"
-    install_package "qemu-ui-spice-core" "qemu-ui-spice-core: Provides the essential engine for the Spice display"
-    install_package "qemu-ui-spice-app" " qemu-ui-spice-app: Allows virt-manager to launch the display correctly."
-    install_package "qemu-audio-spice" " qemu-audio-spice: Fixes potential audio errors related to the Spice"
-
+    # show_title "Install KVM and Virtualization Tools"
+    # install_package "qemu-base" "QEMU base package"
+    # install_package "libvirt" "Libvirt virtualization library"
+    # install_package "dnsmasq" "DNS/DHCP server for virtual networks"
+    # install_package "virt-manager" "Graphical VM manager"
+    # # install_package "bridge-utils" "Network bridge utilities"     # dpericated use iprout2 or get bridge-utils from aur.
+    # install_package "vde2"
+    # install_package "openbsd-netcat"
+    # install_package "dmidecode"
+    # install_package "swtpm" "Needed library if you want to install windows11"
+    # install_package "libtpms" "Needed library if you want to install windows11"
+    # install_package "edk2-ovmf" "Needed library if you want to install windows11"
+    # install_package "qemu-hw-display-qxl" "Needed for qxl option of graphic adapter"
+    # install_package "spice" "Needed for spice display option"
+    # install_package "qemu-chardev-spice " "Needed for spice display option"
+    # install_package "qemu-ui-spice-core" "qemu-ui-spice-core: Provides the essential engine for the Spice display"
+    # install_package "qemu-ui-spice-app" " qemu-ui-spice-app: Allows virt-manager to launch the display correctly."
+    # install_package "qemu-audio-spice" " qemu-audio-spice: Fixes potential audio errors related to the Spice"
+    #
+    # # # Enable and start the Default Network
+    # # show_title "Enable and start the Default Network"
+    # # sudo virsh net-start default
+    # # sudo virsh net-autostart default
+    #
+    # # --- User permissions ---
+    # show_title "Grant User Permissions"
+    # add_user_to_groups kvm libvirt
+    #
+    # # --- Enable services ---
+    # show_title "Enable Libvirt Services"
+    # enable_service "libvirtd"
+    #
     # # Enable and start the Default Network
+    # show_title "Enable and start the Default Network"
     # show_title "Enable and start the Default Network"
     # sudo virsh net-start default
     # sudo virsh net-autostart default
-
-    # --- User permissions ---
-    show_title "Grant User Permissions"
-    add_user_to_groups kvm libvirt
-
-    # --- Enable services ---
-    show_title "Enable Libvirt Services"
-    enable_service "libvirtd"
-
-    # Enable and start the Default Network
-    show_title "Enable and start the Default Network"
-    show_title "Enable and start the Default Network"
-    sudo virsh net-start default
-    sudo virsh net-autostart default
-
-    # valicate virt-hosts
-    show_title "valicate virt-hosts"
-    virt-host-validate qemu
+    #
+    # # valicate virt-hosts
+    # show_title "valicate virt-hosts"
+    # virt-host-validate qemu
 
 fi
 
