@@ -111,9 +111,10 @@ IS_HYBRID=false
 [ "$HAS_INTEL" -gt 0 ] && [ "$HAS_NVIDIA" -gt 0 ] && IS_HYBRID=true
 
 # Detect storage drive
-STORAGE_PATH="/media/$USER/Storage/Games" && mkdir -p $ $STORAGE_PATH
+STORAGE_PATH="/media/$USER/Storage/Games"
 # FLATPAK_STORAGE="/media/$USER/Storage/Apps/Flatpak"
-FLATPAK_STORAGE="SHOME/.var" && mkdir -p $FLATPAK_STORAGE
+FLATPAK_STORAGE="$HOME/.var"
+mkdir -p $FLATPAK_STORAGE
 HAS_STORAGE=false
 HAS_FLATPAK_STORAGE=false
 [ -d "$STORAGE_PATH" ] && HAS_STORAGE=true
@@ -973,66 +974,66 @@ fi
 # =============================================================================
 # MODULE 6 — Steam (Flatpak — unified across all distros)
 # =============================================================================
-# if $do_steam; then
-#     section "Module 6: Steam via Flatpak (all distros)"
+if $do_steam; then
+    section "Module 6: Steam via Flatpak (all distros)"
 
-    # banner "Steam — Flatpak + Shared Storage"
+    banner "Steam — Flatpak + Shared Storage"
 
-    # # ── Step 1: Set up shared Flatpak storage on external drive ──────────────
-    # # ~/.var/app is where Flatpak stores ALL app data (Steam, ProtonUp, etc.)
-    # # Symlinking it to the storage drive means:
-    # #   - All Flatpak apps persist across distro reinstalls
-    # #   - Steam games, settings, Proton versions shared across all distros
-    # #   - Clean home directory
-    #
-    # FLATPAK_HOME="$HOME/.var"
-    # FLATPAK_STORAGE_FULL="$FLATPAK_STORAGE"
-    #
-    # echo ""
-    # info "Flatpak shared storage plan:"
-    # info "  Symlink: $FLATPAK_HOME → $FLATPAK_STORAGE_FULL"
-    # info "  All Flatpak app data will live on your storage drive."
-    # info "  Steam, saves, Proton versions — shared across all distros."
-    # echo ""
-    #
-    # if [ ! -d "$(dirname "$FLATPAK_STORAGE_FULL")" ]; then
-    #     warn "Storage drive path not found: $FLATPAK_STORAGE_FULL"
-    #     warn "Make sure /media/$USER/Storage/Apps is accessible."
-    #     warn "Skipping Flatpak storage symlink — re-run option 6 after mounting."
-    # else
-    #     mkdir -p "$FLATPAK_STORAGE_FULL/app"
-    #     log "Flatpak storage directory ready: $FLATPAK_STORAGE_FULL"
-    #
-    #     if [ -L "$FLATPAK_HOME" ]; then
-    #         CURRENT_TARGET=$(readlink -f "$FLATPAK_HOME")
-    #         if [ "$CURRENT_TARGET" = "$FLATPAK_STORAGE_FULL" ]; then
-    #             warn "~/.var already correctly symlinked to storage drive."
-    #         else
-    #             warn "~/.var is a symlink pointing to: $CURRENT_TARGET"
-    #             read -rp "  Re-link to $FLATPAK_STORAGE_FULL? [Y/n] " relink
-    #             relink=${relink:-Y}
-    #             if [[ "$relink" =~ ^[Yy]$ ]]; then
-    #                 rm "$FLATPAK_HOME"
-    #                 ln -s "$FLATPAK_STORAGE_FULL" "$FLATPAK_HOME"
-    #                 log "~/.var re-linked to $FLATPAK_STORAGE_FULL"
-    #             fi
-    #         fi
-    #     elif [ -d "$FLATPAK_HOME" ]; then
-    #         log "Existing ~/.var found — migrating to storage drive..."
-    #         BACKUP="$HOME/.var.backup.$(date +%Y%m%d_%H%M%S)"
-    #         cp -r "$FLATPAK_HOME" "$BACKUP"
-    #         log "Backup: $BACKUP"
-    #         cp -rn "$FLATPAK_HOME/." "$FLATPAK_STORAGE_FULL/" 2>/dev/null || true
-    #         rm -rf "$FLATPAK_HOME"
-    #         ln -s "$FLATPAK_STORAGE_FULL" "$FLATPAK_HOME"
-    #         log "~/.var migrated and symlinked → $FLATPAK_STORAGE_FULL"
-    #     else
-    #         ln -s "$FLATPAK_STORAGE_FULL" "$FLATPAK_HOME"
-    #         log "~/.var symlinked to storage drive (fresh state)."
-    #     fi
-    #
-    #     [ -L "$FLATPAK_HOME" ] && log "~/.var symlink verified: $(readlink -f $FLATPAK_HOME)" || warn "Symlink verification failed — check manually."
-    # fi
+    # ── Step 1: Set up shared Flatpak storage on external drive ──────────────
+    # ~/.var/app is where Flatpak stores ALL app data (Steam, ProtonUp, etc.)
+    # Symlinking it to the storage drive means:
+    #   - All Flatpak apps persist across distro reinstalls
+    #   - Steam games, settings, Proton versions shared across all distros
+    #   - Clean home directory
+
+    FLATPAK_HOME="$HOME/.var"
+    FLATPAK_STORAGE_FULL="$FLATPAK_STORAGE"
+
+    echo ""
+    info "Flatpak shared storage plan:"
+    info "  Symlink: $FLATPAK_HOME → $FLATPAK_STORAGE_FULL"
+    info "  All Flatpak app data will live on your storage drive."
+    info "  Steam, saves, Proton versions — shared across all distros."
+    echo ""
+
+    if [ ! -d "$(dirname "$FLATPAK_STORAGE_FULL")" ]; then
+        warn "Storage drive path not found: $FLATPAK_STORAGE_FULL"
+        warn "Make sure /media/$USER/Storage/Apps is accessible."
+        warn "Skipping Flatpak storage symlink — re-run option 6 after mounting."
+    else
+        mkdir -p "$FLATPAK_STORAGE_FULL/app"
+        log "Flatpak storage directory ready: $FLATPAK_STORAGE_FULL"
+
+        if [ -L "$FLATPAK_HOME" ]; then
+            CURRENT_TARGET=$(readlink -f "$FLATPAK_HOME")
+            if [ "$CURRENT_TARGET" = "$FLATPAK_STORAGE_FULL" ]; then
+                warn "~/.var already correctly symlinked to storage drive."
+            else
+                warn "~/.var is a symlink pointing to: $CURRENT_TARGET"
+                read -rp "  Re-link to $FLATPAK_STORAGE_FULL? [Y/n] " relink
+                relink=${relink:-Y}
+                if [[ "$relink" =~ ^[Yy]$ ]]; then
+                    rm "$FLATPAK_HOME"
+                    # ln -s "$FLATPAK_STORAGE_FULL" "$FLATPAK_HOME"
+                    log "~/.var re-linked to $FLATPAK_STORAGE_FULL"
+                fi
+            fi
+        elif [ -d "$FLATPAK_HOME" ]; then
+            log "Existing ~/.var found — migrating to storage drive..."
+            BACKUP="$HOME/.var.backup.$(date +%Y%m%d_%H%M%S)"
+            cp -r "$FLATPAK_HOME" "$BACKUP"
+            log "Backup: $BACKUP"
+            cp -rn "$FLATPAK_HOME/." "$FLATPAK_STORAGE_FULL/" 2>/dev/null || true
+            rm -rf "$FLATPAK_HOME"
+            # ln -s "$FLATPAK_STORAGE_FULL" "$FLATPAK_HOME"
+            log "~/.var migrated and symlinked → $FLATPAK_STORAGE_FULL"
+        else
+            # ln -s "$FLATPAK_STORAGE_FULL" "$FLATPAK_HOME"
+            log "~/.var symlinked to storage drive (fresh state)."
+        fi
+
+        [ -L "$FLATPAK_HOME" ] && log "~/.var symlink verified: $(readlink -f $FLATPAK_HOME)" || warn "Symlink verification failed — check manually."
+    fi
 
     # ── Step 2: Install Flatpak per distro ────────────────────────────────────
     if [ "$DISTRO" = "arch" ]; then
