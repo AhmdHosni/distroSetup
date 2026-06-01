@@ -728,30 +728,30 @@ fi
 # =============================================================================
 # MODULE 3 — Pacman Hook (Arch only)
 # =============================================================================
-if $do_hook && [ "$DISTRO" = "arch" ]; then
-    section "Module 3: Pacman NVIDIA DKMS Hook"
-
-    sudo mkdir -p /etc/pacman.d/hooks
-    sudo tee /etc/pacman.d/hooks/nvidia-dkms-rebuild.hook >/dev/null <<'EOF'
-[Trigger]
-Operation = Install
-Operation = Upgrade
-Type = Package
-Target = linux-zen
-Target = linux-zen-headers
-
-[Action]
-Description = Rebuilding NVIDIA DKMS module and UKI after kernel update...
-When = PostTransaction
-Exec = /usr/bin/bash -c 'dkms autoinstall -k $(uname -r) && mkinitcpio -p linux-zen && exit 0; echo "DKMS build failed — run: paru -S nvidia-580xx-dkms --rebuild && sudo mkinitcpio -p linux-zen"'
-Depends = mkinitcpio
-Depends = dkms
-EOF
-    log "Pacman hook installed at /etc/pacman.d/hooks/nvidia-dkms-rebuild.hook"
-elif $do_hook && [ "$DISTRO" != "arch" ]; then
-    skip "Pacman hook (Arch only)"
-fi
-
+# if $do_hook && [ "$DISTRO" = "arch" ]; then
+#     section "Module 3: Pacman NVIDIA DKMS Hook"
+#
+#     sudo mkdir -p /etc/pacman.d/hooks
+#     sudo tee /etc/pacman.d/hooks/nvidia-dkms-rebuild.hook >/dev/null <<'EOF'
+# [Trigger]
+# Operation = Install
+# Operation = Upgrade
+# Type = Package
+# Target = linux-zen
+# Target = linux-zen-headers
+#
+# [Action]
+# Description = Rebuilding NVIDIA DKMS module and UKI after kernel update...
+# When = PostTransaction
+# Exec = /usr/bin/bash -c 'dkms autoinstall -k $(uname -r) && mkinitcpio -p linux-zen && exit 0; echo "DKMS build failed — run: paru -S nvidia-580xx-dkms --rebuild && sudo mkinitcpio -p linux-zen"'
+# Depends = mkinitcpio
+# Depends = dkms
+# EOF
+#     log "Pacman hook installed at /etc/pacman.d/hooks/nvidia-dkms-rebuild.hook"
+# elif $do_hook && [ "$DISTRO" != "arch" ]; then
+#     skip "Pacman hook (Arch only)"
+# fi
+#
 # =============================================================================
 # MODULE 4 — Hyprland Config (Arch only)
 # =============================================================================
