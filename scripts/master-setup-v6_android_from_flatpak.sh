@@ -1478,20 +1478,23 @@ FLUTTER_ROOT=$FLUTTER_DIR
 ENVEOF
         log "System-wide env vars written to /etc/environment.d/android-dev.conf"
 
-        # Add to shell rc for PATH
+        # PATH for terminal tools (adb, flutter, gradle CLI)
+        # /etc/environment.d/android-dev.conf handles env vars system-wide
+        # We only need to add the bin paths to PATH in the shell rc
+        # Note: /etc/environment.d does NOT set PATH automatically — only vars
         SHELL_RC="$HOME/.bashrc"
         [[ "$SHELL" == *zsh* ]] && SHELL_RC="$HOME/.config/zsh/.zshrc"
         if ! grep -q "Storage/Dev" "$SHELL_RC" 2>/dev/null; then
             cat >>"$SHELL_RC" <<RCEOF
 
-# Android + Flutter paths (added by master-setup.sh)
-export ANDROID_HOME="$SDK_DIR"
-export ANDROID_SDK_ROOT="$SDK_DIR"
-export GRADLE_USER_HOME="$GRADLE_DIR"
-export FLUTTER_ROOT="$FLUTTER_DIR"
+# Android + Flutter PATH additions (added by master-setup.sh)
+# Env vars (ANDROID_HOME etc) come from /etc/environment.d/android-dev.conf
+# Only PATH additions needed here for terminal tools
 export PATH="\$PATH:$SDK_DIR/platform-tools:$SDK_DIR/tools/bin:$FLUTTER_DIR/bin"
 RCEOF
-            log "Flutter + ADB added to PATH in $SHELL_RC"
+            log "ADB + Flutter bin paths added to PATH in $SHELL_RC"
+            info "ANDROID_HOME and GRADLE_USER_HOME come from /etc/environment.d/"
+            info "No need to duplicate env vars in shell rc"
         else
             warn "Android/Flutter PATH already in $SHELL_RC"
         fi
